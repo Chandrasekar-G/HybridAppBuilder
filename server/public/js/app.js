@@ -1,0 +1,1 @@
+angular.module('sampleApp', ['ngRoute', 'appRoutes', 'LoginController', 'HomeController', 'LoginService', 'HomeService']);
