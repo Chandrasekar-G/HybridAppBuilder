@@ -22,13 +22,19 @@ Git client preferabley Source Tree
 
 ```
 mkdir HybridAppBuilder
-cd hybridAppBuilder
+cd HybridAppBuilder
 git clone https://github.com/Chandrasekar-G/HybridAppBuilder.git
 cd server
 npm install
 bower install
 ```
 
+### DataBase
+
+IBM CloudAnt
+```
+Use the Postman collection https://www.getpostman.com/collections/c109ff06f82e6cb0da7e for Sample CRUD operations.
+```
 ## Deployment
 
 IBM Bluemix - Node SDK and CloudAnt Service
