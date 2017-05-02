@@ -36,17 +36,17 @@ function Core() {
 
             var deferred = $q.defer();
 
-            // if (!headers) {
-            //     var token = $rootScope.user.token;
-            //     headers = {
-            //         'Authorization': 'Basic ' + token
-            //     };
-            // }
             if (!headers) headers = {};
+            else {
+                headers = {
+                    'Authorization' : APP.DB.Headers.Authorization,
+                    'Content-Type' : APP.DB.Headers.ContentType
+                }
+            }
 
             var req = {
                 method: requestType,
-                url: SB.BACK_END.RootURL + methodName,
+                url: APP.DB.RootURL + APP.DB.DBName + methodName,
                 headers: headers
             };
 
@@ -57,9 +57,9 @@ function Core() {
             }
 
             if (requestData) {
-                if (requestType == SB.BACK_END.RequestType.GET) {
+                if (requestType == APP.DB.RequestType.GET) {
                     req.params = requestData;
-                } else if (requestType == SB.BACK_END.RequestType.POST) {
+                } else if (requestType == APP.DB.RequestType.POST) {
                     req.data = requestData;
                 }
             }
@@ -74,7 +74,7 @@ function Core() {
                 Logger.debug("utils - callBackend: response: ");
                 Logger.debug(response);
 
-                if (response.data.isSuccess) {
+                if (response) {
                     deferred.resolve(response.data.data);
                 } else {
                     deferred.reject(response.data.error);
@@ -85,13 +85,13 @@ function Core() {
                 var errorResponse = {};
 
                 if (error.status == 401) {
-                    errorResponse.code = SB.BACK_END.ERROR_CODES.UNAUTHORIZED;
+                    errorResponse.code = APP.DB.ERROR_CODES.UNAUTHORIZED;
                 }
                 else if (error.status == 500) {
-                    errorResponse.code = SB.BACK_END.ERROR_CODES.SERVER_ERROR;
+                    errorResponse.code = APP.DB.ERROR_CODES.SERVER_ERROR;
                 }
                 else {
-                    errorResponse.code = SB.BACK_END.ERROR_CODES.NETWORK_ERROR;
+                    errorResponse.code = APP.DB.ERROR_CODES.NETWORK_ERROR;
                 }
 
                 deferred.reject(errorResponse);
@@ -105,14 +105,14 @@ function Core() {
             service.Logger.debug("$utils.handleError : start");
 
             try {
-                var message = service.SB_MESSAGES[error.code];
-                message = service.SB_MESSAGES[error.code];
+                var message = service.APP[error.code];
+                message = service.APP[error.code];
                 if(!message){
-                  message = SB_MESSAGES.GENERIC_ERROR_MESSAGE;
+                  message = APP.DB.ERROR_MESSAGES.GENERIC_ERROR;
                 }
                 return message;
             } catch (e) {
-                return service.SB_MESSAGES.GENERIC_ERROR_MESSAGE;
+                return APP.DB.GENERIC_ERROR;
             }
 
         }
@@ -146,7 +146,7 @@ function Core() {
 
         function showSpinner() {
             $ionicLoading.show({
-                templateUrl: 'templates/loaders/global_loader.html'
+                templateUrl: '../../templates/loaders/global_loader.html'
             });
         }
 

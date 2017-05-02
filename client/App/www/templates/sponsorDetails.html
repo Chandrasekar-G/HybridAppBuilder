@@ -1,0 +1,26 @@
+<ion-view view-title="{{currentSponsor.name}}">
+   <ion-content class="sponsorDetailsContainer">
+       
+       <div class="wall">
+           <img src="../img/{{currentSponsor.header}}">
+       </div>
+
+       <div class="logo">
+           <img src="../img/{{currentSponsor.logo}}">
+       </div>
+       <div class="title">{{currentSponsor.name}}</div>
+       <div class="longDesc">{{currentSponsor.longDesc}}</div>
+       
+       <div class="social">
+            <img src="../img/menu/fb.png"></img>
+            <img src="../img/menu/twitter.png"></img>
+            <img src="../img/menu/youtube.png"></img>
+       </div>
+
+       <div class="site">
+        <a href="{{currentSponsor.url}}">Visit our site </a>
+        <i class="ion-share"></i>
+       </div>
+
+   </ion-content>
+</ion-view>

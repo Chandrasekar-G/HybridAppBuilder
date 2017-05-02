@@ -1,1 +1,112 @@
-/* Empty. Add your own CSS if you like */
+* {
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 0.75px; }
+
+@keyframes boxSpin {
+  0% {
+    transform: translate(-10px, 0px); }
+  25% {
+    transform: translate(10px, 10px); }
+  50% {
+    transform: translate(10px, -10px); }
+  75% {
+    transform: translate(-10px, -10px); }
+  100% {
+    transform: translate(-10px, 10px); } }
+@keyframes shadowSpin {
+  0% {
+    box-shadow: 10px -10px #39CCCC, -10px 10px #FFDC00; }
+  25% {
+    box-shadow: 10px 10px #39CCCC, -10px -10px #FFDC00; }
+  50% {
+    box-shadow: -10px 10px #39CCCC, 10px -10px #FFDC00; }
+  75% {
+    box-shadow: -10px -10px #39CCCC, 10px 10px #FFDC00; }
+  100% {
+    box-shadow: 10px -10px #39CCCC, -10px 10px #FFDC00; } }
+#loader {
+  background-color: #FF4136;
+  opacity: 0.75;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  margin: -5px auto 0 auto;
+  left: 0;
+  right: 0;
+  border-radius: 0px;
+  border: 5px solid #FF4136;
+  box-shadow: 10px 0px #39CCCC, 10px 0px #01FF70;
+  animation: shadowSpin 1s ease-in-out infinite; }
+
+.menuContainer .menuItem {
+  border-style: none; }
+  .menuContainer .menuItem .icon img {
+    margin: 0 10px;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px; }
+  .menuContainer .menuItem .name {
+    flex: 1;
+    font-weight: 600;
+    vertical-align: middle; }
+
+.card {
+  position: relative; }
+  .card .logo {
+    position: absolute;
+    top: 50%;
+    margin: 0 auto;
+    transform: translateY(-50%);
+    display: inline-block;
+    padding: 5%; }
+    .card .logo img {
+      width: 70px;
+      height: 70px; }
+  .card .detail {
+    color: black;
+    float: right;
+    width: 70%;
+    padding: 10px; }
+    .card .detail .title {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 10px; }
+    .card .detail .shortDesc {
+      font-size: 12px; }
+
+.sponsorDetailsContainer .wall img {
+  width: 100%; }
+.sponsorDetailsContainer .logo img {
+  height: 75px;
+  width: 75px;
+  margin-top: -50px;
+  background: white;
+  box-shadow: 0 1px 7px black;
+  border-radius: 5px;
+  margin-left: 20px; }
+.sponsorDetailsContainer .title {
+  font-size: 30px;
+  text-align: -webkit-center;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-weight: 500; }
+.sponsorDetailsContainer .longDesc {
+  padding: 20px;
+  text-align: justify;
+  margin-top: -20px; }
+.sponsorDetailsContainer .site {
+  padding: 20px;
+  text-align: center; }
+  .sponsorDetailsContainer .site i {
+    vertical-align: super;
+    font-size: 20px; }
+  .sponsorDetailsContainer .site a {
+    text-decoration: none;
+    font-size: 20px; }
+.sponsorDetailsContainer .social img {
+  width: 30px;
+  height: 30px;
+  margin-left: 65px; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,18 @@
+.menuContainer{
+    .menuItem{
+        border-style: none;
+        .icon{
+            img{
+                margin: 0 10px;
+                vertical-align: middle;
+                width: 30px;
+                height: 30px;
+            }
+        }
+        .name{
+            flex: 1;
+            font-weight: 600;
+            vertical-align: middle;
+        }
+    }
+}

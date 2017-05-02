@@ -5,7 +5,7 @@ var BUILDER = {
         SCHEDULES : {
             TITLE : "Schedules",
             ORDER : "1",
-            ICON : "schedules.png",
+            ICON : "menu/schedules.png",
             ENABLED : true,
             HOME : false,
             STATE : {
@@ -19,9 +19,9 @@ var BUILDER = {
         BREAKOUTS : {
             TITLE : "Breakouts",
             ORDER : "21",
-            ICON : "breakouts.png",
-            ENABLED : true,
-            HOME : true,
+            ICON : "menu/breakouts.png",
+            ENABLED : false,
+            HOME : false,
             STATE : {
                 NAME : 'app.breakouts',
                 URL : "/breakouts",
@@ -33,8 +33,8 @@ var BUILDER = {
         EVENTS : {
             TITLE : "Events",
             ORDER : "3",
-            ICON : "events.png",
-            ENABLED : true,
+            ICON : "menu/events.png",
+            ENABLED : false,
             HOME : false,
             STATE : {
                 NAME : 'app.events',
@@ -47,21 +47,29 @@ var BUILDER = {
         SPONSORS : {
             TITLE : "Sponsors",
             ORDER : "4",
-            ICON : "sponsors.png",
+            ICON : "menu/sponsors.png",
             ENABLED : true,
-            HOME : false,
+            HOME : true,
+            SUB_STATE : true,
             STATE : {
                 NAME : 'app.sponsors',
                 URL : "/sponsors",
                 TEMPLATEURL : "templates/sponsors.html",
                 CONTROLLER : "SponsorsController",
                 CACHE : false
+            },
+            SUB_STATE : {
+                NAME : 'app.sponsorDetails',
+                URL : "/sponsors/:sponsorId",
+                TEMPLATEURL : "templates/sponsorDetails.html",
+                CONTROLLER : "SponsorDetailsController",
+                CACHE : false
             }
         },
         SPEAKERS : {
             TITLE : "Speakers",
             ORDER : "5",
-            ICON : "speakers.png",
+            ICON : "menu/speakers.png",
             ENABLED : true,
             HOME : false,
             STATE : {
@@ -75,7 +83,7 @@ var BUILDER = {
         FAQ : {
             TITLE : "FAQs",
             ORDER : "6",
-            ICON : "faq.png",
+            ICON : "menu/faq.png",
             ENABLED : false,
             HOME : false,
             STATE : {
@@ -89,7 +97,7 @@ var BUILDER = {
         EXHIBITORS : {
             TITLE : "Exhibitor",
             ORDER : "7",
-            ICON : "exhibitor.png",
+            ICON : "menu/exhibitor.png",
             ENABLED : false,
             HOME : false,
             STATE : {
@@ -102,9 +110,9 @@ var BUILDER = {
         },
         FEEDBACK : {
             TITLE : "Feedback",
-            ORDER : "8",
-            ICON : "feedback.png",
-            ENABLED : false,
+            ORDER : "18",
+            ICON : "menu/feedback.png",
+            ENABLED : true,
             HOME : false,
             STATE : {
                 NAME : 'app.feedback',
@@ -117,8 +125,8 @@ var BUILDER = {
         GALLERY : {
             TITLE : "Gallery",
             ORDER : "9",
-            ICON : "gallery.png",
-            ENABLED : false,
+            ICON : "menu/gallery.png",
+            ENABLED : true,
             HOME : false,
             STATE : {
                 NAME : 'app.gallery',
@@ -131,8 +139,8 @@ var BUILDER = {
         CUSTOM_LIST : {
             TITLE : "List",
             ORDER : "10",
-            ICON : "list.png",
-            ENABLED : false,
+            ICON : "menu/list.png",
+            ENABLED : true,
             HOME : false,
             STATE : {
                 NAME : 'app.list',
@@ -145,7 +153,7 @@ var BUILDER = {
         WEB_VIEW : {
             TITLE : "Web Site",
             ORDER : "11",
-            ICON : "www.png",
+            ICON : "menu/www.png",
             ENABLED : false,
             HOME : false,
             STATE : {
@@ -159,7 +167,7 @@ var BUILDER = {
         FB : {
             TITLE : "FB Page",
             ORDER : "12",
-            ICON : "fb.png",
+            ICON : "menu/fb.png",
             ENABLED : false,
             HOME : false,
             STATE : {
@@ -173,7 +181,7 @@ var BUILDER = {
         YOUTUBE : { 
             TITLE : "YouTube Channel",
             ORDER : "13",
-            ICON : "youtube.png",
+            ICON : "menu/youtube.png",
             ENABLED : true,
             HOME : false,
             STATE : {
@@ -187,8 +195,8 @@ var BUILDER = {
         TWITTER : {
             TITLE : "Twitter Handle",
             ORDER : "14",
-            ICON : "twitter.png",
-            ENABLED : true,
+            ICON : "menu/twitter.png",
+            ENABLED : false,
             HOME : false,
             STATE : {
                 NAME : 'app.twitter',
@@ -201,7 +209,7 @@ var BUILDER = {
         MAP : {
             TITLE : "Venue Map",
             ORDER : "15",
-            ICON : "maps.png",
+            ICON : "menu/maps.png",
             ENABLED : true,
             HOME : false,
             STATE : {
@@ -215,8 +223,8 @@ var BUILDER = {
         EMERGENCY_CONTACT : {
             TITLE : "Emergency Contact",
             ORDER : "16",
-            ICON : "emergency.png",
-            ENABLED : true,
+            ICON : "menu/emergency.png",
+            ENABLED : false,
             HOME : false,
             STATE : {
                 NAME : 'app.emergency',

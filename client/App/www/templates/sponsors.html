@@ -1,5 +1,20 @@
-<ion-view view-title="Search">
-  <ion-content>
-    <h1>Search</h1>
+<ion-view view-title="Sponsors">
+<ion-view view-title="Sponsors">
+   <ion-content>
+      <div class="card" ng-repeat="sponsor in Sponsors" >
+        <a href="#/app/sponsors/{{sponsor.id}}">
+        <div class="logo">
+           <img src="../img/{{sponsor.logo}}"/>
+        </div>
+        <div class="detail">
+          <div class="title">
+            {{sponsor.name}}
+          </div>
+          <div class="shortDesc">
+            {{sponsor.shortDesc}}
+          </div>
+        </div>
+      </div>
+      </a>
   </ion-content>
 </ion-view>

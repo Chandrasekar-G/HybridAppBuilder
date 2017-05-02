@@ -1,0 +1,79 @@
+.card {
+  position: relative;
+  .logo{
+      position: absolute;
+      top: 50%;
+      margin: 0 auto;
+      transform: translateY(-50%);
+      display: inline-block;
+      padding: 5%;
+    img{
+      width: 70px;
+      height: 70px;
+    }
+  }
+  .detail{
+    color: black;
+    float: right;
+    width: 70%;
+    padding: 10px;
+    .title{
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .shortDesc{
+      font-size: 12px;
+    }
+  }
+}
+
+.sponsorDetailsContainer{
+  .wall{
+    img{
+      width: 100%;
+    }
+  }
+  .logo{
+    img{
+      height: 75px;
+      width: 75px;
+      margin-top: -50px;
+      background: white;
+      box-shadow: 0 1px 7px rgba(0, 0, 0, 1);
+      border-radius: 5px;
+      margin-left: 20px;
+    }
+  }
+  .title{
+    font-size: 30px;
+    text-align: -webkit-center;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .longDesc{
+    padding: 20px;
+    text-align: justify;
+    margin-top: -20px;
+  }
+  .site{
+    padding:20px;
+    text-align: center;
+    i{
+      vertical-align: super;
+      font-size: 20px;
+    }
+    a{
+      text-decoration: none;
+      font-size: 20px;
+    }
+  }
+  .social{
+    img{
+      width: 30px;
+      height: 30px;
+      margin-left: 65px;
+    }
+  }
+}
