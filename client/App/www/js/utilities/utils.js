@@ -146,7 +146,7 @@ function Core() {
 
         function showSpinner() {
             $ionicLoading.show({
-                templateUrl: '../../templates/loaders/global_loader.html'
+                templateUrl: 'templates/loaders/global_loader.html'
             });
         }
 

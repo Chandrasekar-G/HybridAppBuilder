@@ -28,7 +28,10 @@ function SponsorsController($scope, $rootScope, $state, $ionicModal, $q, utils) 
 
 
     function onEnter() {
-        $scope.getSponsors();
+        $scope.Sponsors = utils.localStorage.getObject("sponsors");
+        if(!$scope.Sponsors) {
+            $scope.getSponsors();
+        }
     };
 
 };

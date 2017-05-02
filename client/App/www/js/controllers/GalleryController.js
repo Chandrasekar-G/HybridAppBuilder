@@ -28,7 +28,10 @@ function GalleryController($scope, $rootScope, $state, $ionicModal, utils, $q) {
 
 
     function onEnter() {
-        $scope.getItems();
+        $scope.items = utils.localStorage.getObject("gallery");
+        if(!$scope.items) {
+            $scope.getItems();
+        }
     };
 
 }

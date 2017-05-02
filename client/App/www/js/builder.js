@@ -168,7 +168,7 @@ var BUILDER = {
             TITLE : "FB Page",
             ORDER : "12",
             ICON : "menu/fb.png",
-            ENABLED : false,
+            ENABLED : true,
             HOME : false,
             STATE : {
                 NAME : 'app.fb',
@@ -182,7 +182,7 @@ var BUILDER = {
             TITLE : "YouTube Channel",
             ORDER : "13",
             ICON : "menu/youtube.png",
-            ENABLED : true,
+            ENABLED : false,
             HOME : false,
             STATE : {
                 NAME : 'app.youtube',
