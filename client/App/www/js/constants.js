@@ -52,7 +52,8 @@ var APP = {
         },
         DocID : {
             Credentials : "Credentails_console",
-            Sponsors : "Sponsors_Kickoff"
+            Sponsors : "Sponsors_Kickoff",
+            Gallery : "Gallery_Kickoff"
         },
         ERROR_CODES : {
             SERVER_ERROR : "SERVER_ERROR",
