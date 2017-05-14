@@ -1,3 +1,4 @@
+var controller = require('./controller');
 module.exports = function(app) {
 
 	// server routes ===========================================================
@@ -6,8 +7,21 @@ module.exports = function(app) {
 
 	// frontend routes =========================================================
 	// route to handle all angular requests
-	app.get('*', function(req, res) {
-		res.sendfile('./public/index.html');
-	});
+	// app.get('*', function(req, res) {
+	// 	res.sendfile('./public/index.html');
+	// });
+
+	app.post('/buildApp', controller.buildApp);
 
 };
+
+
+/*
+var express = require('express');
+var router = express.Router();
+var controller = require('./controller');
+
+router.get('/buildApp', controller.buildApp);
+
+module.exports = router;
+ */
