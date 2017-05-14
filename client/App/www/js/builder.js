@@ -3,16 +3,23 @@ var BUILDER = {
     APP_ICONS : "icons",
     COMPONENTS : {
         SCHEDULES : {
-            TITLE : "Schedules",
+            TITLE : "Sessions",
             ORDER : "1",
             ICON : "menu/schedules.png",
             ENABLED : true,
             HOME : false,
             STATE : {
-                NAME : 'app.scehdules',
-                URL : "/schedules",
-                TEMPLATEURL : "templates/schedules.html",
-                CONTROLLER : "SchedulesController",
+                NAME : 'app.sessions',
+                URL : "/sessions",
+                TEMPLATEURL : "templates/sessions.html",
+                CONTROLLER : "SessionsController",
+                CACHE : false
+            },
+            SUB_STATE : {
+                NAME : 'app.sessionDetails',
+                URL : "/sessions/:sessionId",
+                TEMPLATEURL : "templates/sessionDetails.html",
+                CONTROLLER : "SessionDetailsController",
                 CACHE : false
             }
         },

@@ -10,7 +10,8 @@ var APP = {
     CONTROLLERS : {
         LoginController : "LoginController",
         MenuController : "MenuController",
-        SchedulesController : "SchedulesController",
+        SessionsController : "SessionsController",
+        SessionDetailsController : "SessionDetailsController",
         BreakoutsController : "BreakoutsController",
         EventsController : "EventsController",
         SponsorsController : "SponsorsController",
@@ -55,7 +56,8 @@ var APP = {
             Sponsors : "Sponsors_Kickoff",
             Gallery : "Gallery_Kickoff",
             Speakers : "Speakers_Kickoff",
-            List : "List_Kickoff"
+            List : "List_Kickoff",
+            Sessions : "Sessions_Kickoff"
         },
         ERROR_CODES : {
             SERVER_ERROR : "SERVER_ERROR",

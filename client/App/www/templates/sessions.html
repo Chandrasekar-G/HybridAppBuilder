@@ -1,0 +1,15 @@
+<ion-view view-title="Sessions">
+  <ion-content>
+    <div class="sessionsContainer">
+      <div class="sessionGroup" ng-repeat="group in SessionGroup">
+        <div class="groupHeading"> {{group.time}} </div>
+          <div class="sessions" ng-repeat="session in group.sessions" style="border-left-color:{{session.color}}">
+            <a href="#/app/sessions/{{session.id}}">
+              <div class="title"> {{session.name}} </div>
+              <div class="shortDesc"> {{session.timeStart}} - {{session.timeEnd}} @ {{session.location}} </div>
+            </a>
+          </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

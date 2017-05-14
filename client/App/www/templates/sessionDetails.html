@@ -1,0 +1,30 @@
+<ion-view view-title="Session Detail">
+    <ion-content class="sessionDetailsContainer">
+        <div class="wall">
+           <img src="img/sessions/{{currentSession.tracks[0]}}.png">
+        </div>
+        <div class="content">
+            <div class="title">{{currentSession.name}}</div>
+            <div class="time">
+                <i class="ion-clock"></i>
+                <div class="name">Timings</div>
+                <div class="value">{{currentSession.timeStart}} - {{currentSession.timeEnd}}</div>
+            </div>
+            <div class="location">
+                <i class="ion-location"></i>
+                <div class="name">Location</div>
+                <div class="value">{{currentSession.location}}</div>
+            </div>
+            <div class="presenters">
+                <div class="heading"><i class="ion-mic-c"></i>Presenters</div>
+                <div class="value" ng-repeat="presenter in currentSession.presenterDetails">
+                    <span class="pic">
+                        <img src="img/sessions/{{presenter.pic}}" />
+                    </span>
+                    <span class="name"> {{presenter.name}} </span>
+                </div>
+            </div>
+            <div class="desc"> {{currentSession.description}}</div>
+        </div>
+   </ion-content>
+</ion-view>
