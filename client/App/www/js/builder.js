@@ -137,7 +137,7 @@ var BUILDER = {
             }
         },
         CUSTOM_LIST : {
-            TITLE : "List",
+            TITLE : "Miscellaneous",
             ORDER : "10",
             ICON : "menu/list.png",
             ENABLED : true,

@@ -1,0 +1,34 @@
+.speakersContainer{
+    .speaker{
+        padding-top: 1px;
+        padding-bottom: 1px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        margin: 20px;
+        .pic{
+            text-align: -webkit-center;
+            margin-top: 10px;
+            img{
+                width: 120px;
+                border-radius: 50%;
+                height: 120px;
+            }
+        }
+        .name{
+            font-size: 17px;
+            font-weight: 600;
+            text-align: -webkit-center;
+            margin-bottom: 10px;
+        }
+        .desc{
+            text-align: justify;
+            padding: 20px;
+        }
+        .social{
+            img{
+                width: 30px;
+                height: 30px;
+                margin-left: 85px;
+            }
+        }
+    }
+}

@@ -17,7 +17,7 @@ var APP = {
         SponsorDetailsController : "SponsorDetailsController",
         SpeakersController : "SpeakersController",
         FAQController : "FAQController",
-        ExhibitorsController : "ExhibitorsController",
+        ListController : "ListController",
         FeedbackController : "FeedbackController",
         GalleryController : "GalleryController",
         CustomListController : "CustomListController",
@@ -53,7 +53,9 @@ var APP = {
         DocID : {
             Credentials : "Credentails_console",
             Sponsors : "Sponsors_Kickoff",
-            Gallery : "Gallery_Kickoff"
+            Gallery : "Gallery_Kickoff",
+            Speakers : "Speakers_Kickoff",
+            List : "List_Kickoff"
         },
         ERROR_CODES : {
             SERVER_ERROR : "SERVER_ERROR",

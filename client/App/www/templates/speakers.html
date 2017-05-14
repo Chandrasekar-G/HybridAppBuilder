@@ -1,5 +1,21 @@
-<ion-view view-title="Search">
+<ion-view view-title="Speakers">
   <ion-content>
-    <h1>Search</h1>
+    <div class="speakersContainer">
+      <div class="speaker" ng-repeat="speaker in Speakers">
+        <div class="pic">
+          <img src="{{speaker.pic}}" />
+        </div>
+        <div class="name">
+          {{ speaker.name}}
+        </div>
+        <div class="desc">
+          {{ speaker.desc}}
+        </div>
+         <div class="social">
+            <img src="img/menu/fb.png"></img>
+            <img src="img/menu/twitter.png"></img>
+       </div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

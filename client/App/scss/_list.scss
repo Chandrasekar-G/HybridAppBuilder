@@ -1,0 +1,25 @@
+.listContainer{
+    .list{
+        padding-top: 1px;
+        padding-bottom: 1px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        margin: 20px;
+        padding: 15px;
+        .title{
+            border-bottom: 1px solid grey;
+            margin-bottom: 12px;
+            padding: 5px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .desc{
+            .name{
+                width:50%;
+            }
+            .value{
+                width:50%;
+            }
+        }
+    }
+
+}
