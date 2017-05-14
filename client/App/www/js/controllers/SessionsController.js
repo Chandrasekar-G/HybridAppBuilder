@@ -27,11 +27,12 @@ function SessionsController($scope, $rootScope, $state, $ionicModal, utils, $q) 
             console.log($scope.SessionGroup);
             utils.localStorage.setObject("sessionGroup", $scope.SessionGroup);
             utils.localStorage.setObject("presenters", $scope.Presenters);
+            utils.hideSpinner();
         }, (error) => {
             var message = utils.handleError(error);
+            utils.hideSpinner();
             deferred.reject(message);
         });
-        utils.hideSpinner();
         return deferred.promise;
 	};
     onEnter();

@@ -18,11 +18,12 @@ function SponsorsController($scope, $rootScope, $state, $ionicModal, $q, utils) 
             deferred.resolve(response);
             $scope.Sponsors = response;
             utils.localStorage.setObject("sponsors", $scope.Sponsors);
+            utils.hideSpinner();
         }, (error) => {
             var message = utils.handleError(error);
+            utils.hideSpinner();
             deferred.reject(message);
         });
-        utils.hideSpinner();
         return deferred.promise;
 	};
 

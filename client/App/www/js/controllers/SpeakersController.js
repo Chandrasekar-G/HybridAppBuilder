@@ -22,11 +22,12 @@ function SpeakersController($scope, $rootScope, $state, $ionicModal, $q, utils) 
             deferred.resolve(response);
             $scope.Speakers = response;
             utils.localStorage.setObject("speakers", $scope.Sponsors);
+            utils.hideSpinner();
         }, (error) => {
             var message = utils.handleError(error);
             deferred.reject(message);
+            utils.hideSpinner();
         });
-        utils.hideSpinner();
         return deferred.promise;
 	};
 

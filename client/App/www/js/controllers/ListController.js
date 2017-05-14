@@ -36,14 +36,14 @@ console.log("Lis");
                 $scope.List[index].name = name;
                 $scope.List[index].value = value;
             }
-            console.log($scope.List);
             utils.localStorage.setObject("list", $scope.List);
-            console.log("list");
+            utils.hideSpinner();
         }, (error) => {
             var message = utils.handleError(error);
+            utils.hideSpinner();
             deferred.reject(message);
         });
-        utils.hideSpinner();
+        
         return deferred.promise;
 	};
 

@@ -17,12 +17,12 @@ function GalleryController($scope, $rootScope, $state, $ionicModal, utils, $q) {
             deferred.resolve(response);
             $scope.items = response;
             utils.localStorage.setObject("gallery", $scope.items);
-            console.log($scope.items);
+            utils.hideSpinner();
         }, (error) => {
             var message = utils.handleError(error);
+            utils.hideSpinner();
             deferred.reject(message);
         });
-        utils.hideSpinner();
         return deferred.promise;
 	};
 
