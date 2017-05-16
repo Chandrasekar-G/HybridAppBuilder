@@ -1,0 +1,30 @@
+
+.base-wrapper{
+    text-align: center;
+    background: white;
+}
+.item-box {
+    width: 25%;
+    height: 350px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    margin: 10px;
+
+    .box-icon{
+        width: 100px;
+        margin: 40px;
+    }
+
+    .box-text{
+        display: inline-block;
+        margin: 10px;
+        color: #777;
+    }
+
+    .box-button{
+        display: inline-block;
+        border: 1px solid #ddd;
+        padding: 5px 50px 5px 50px;
+        margin: 15px;
+    }
+}

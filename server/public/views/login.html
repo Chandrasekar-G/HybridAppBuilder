@@ -1,4 +1,10 @@
- <div class="container">
+ <header>
+	    <div class="app-header">
+			<p>Welcome!</p>
+			<p>What kind of guide are you looking to build?</p>
+		</div>
+</header>
+ <div class="container" ng-controller="LoginController">
     <h1 class="welcome text-center">Welcome to <br> App Builder</h1>
         <div class="card card-container">
         <h2 class='login_title text-center'>Login</h2>
@@ -6,15 +12,15 @@
             <form class="form-signin">
                 <span id="reauth-email" class="reauth-email"></span>
                 <p class="input_title">Email</p>
-                <input type="text" id="inputEmail" class="login_box" placeholder="abc@xyz.com" required autofocus>
+                <input type="text" id="inputEmail" class="login_box" placeholder="abc@xyz.com" ng-model="LoginObj.userName" required autofocus>
                 <p class="input_title">Password</p>
-                <input type="password" id="inputPassword" class="login_box" placeholder="******" required>
+                <input type="password" id="inputPassword" class="login_box" placeholder="******" ng-model="LoginObj.password" required>
                 <div id="remember" class="checkbox">
                     <label>
                         
                     </label>
                 </div>
-                <button class="btn btn-lg btn-primary" type="submit">Login</button>
+                <button class="btn btn-lg btn-primary" type="submit" ng-click="loginUser()">Login</button>
             </form><!-- /form -->
         </div><!-- /card-container -->
 </div><!-- /container -->

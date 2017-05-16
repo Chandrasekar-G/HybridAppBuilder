@@ -11,5 +11,15 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controller: 'HomeController'
 		})
 
+		.when('/template', {
+			templateUrl: 'views/template.html',
+			controller: 'TemplateController'
+		})
+
+		.when('/appBuilder', {
+			templateUrl: 'views/appBuilder.html',
+			controller: 'AppBuilderController'
+		})
+
 	$locationProvider.html5Mode(true);
 }]);

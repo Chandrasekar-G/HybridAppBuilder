@@ -1,0 +1,49 @@
+<div class="builder-container">
+    <div class="toggle-container">
+        <div class="button-wrapper">
+            <span class="selected-button button home"  ng-click="toggleButton('home')">Home</span>
+            <span class="button feature" ng-click="toggleButton('feature')">Features</span>
+        </div>
+    </div>
+    <div class="color-palette">
+        <div class="header">CHOOSE THEME</div>
+        <div class="color-box" ng-repeat="colors in colorPalette" style="background:{{colors}};" ng-click="applyTheme(colors)">{{colors}}</div>
+    </div>
+    <div class="phone-shell" ng-mouseover="showFeatureOverlay()" data-ng-mouseleave="hideFeatureOverlay()">
+        <div class="app-workarea">
+            <div class="feature-overlay">
+                <div ng-click="showFeatures()">+</div>
+            </div>
+            <div class="modules">
+                <div class="side-menu">
+                    <div class="side-menu-items" ng-repeat="(key,module) in modules">
+                        <div class="remove-module" ng-click="removeFeatureFromSideMenu(key)" >x</div>
+                        <img src="{{module.ICON}}" style="height: 30px;margin-left: 10px;">
+                         {{module.TITLE}}
+                    </div>
+                </div>
+			</div>
+        </div>
+    </div>
+    <div class="slide-in features">
+        <div class="features-content">
+            <div class="text-strong">Features</div>
+            <div>Add a new feature to your guide!</div>
+            <div class="close-features" ng-click="hideFeatures()" >X</div>
+            <div class="features-wrapper">
+                    <div class="features-items" ng-repeat="(key, features) in featureModules"> 
+                        <img src="{{features.ICON}}" class="feature-icon">
+                        <div class="feature-text">{{features.TITLE}}</div>
+                        <div class="add-feature" ng-click="addFeatureToSideMenu(key)" >Add</div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="generate-container">
+        <div class="download-wrapper">
+            <span class="download-button" >Generate Preview</span>
+            <span class="download-button" >Download APK</span>
+            <span class="download-button" >Download Source</span>
+        </div>
+    </div>
+</div>
