@@ -5,7 +5,9 @@
     "express" : "~4.5.1",
     "mongoose" : "~3.8.0",
     "body-parser" : "~1.4.2",
-    "method-override" : "~2.0.2"
+    "method-override" : "~2.0.2",
+    "node-cmd" : "~3.0.0",
+    "zip-folder" : "~1.0.0"
   }
 }
 
