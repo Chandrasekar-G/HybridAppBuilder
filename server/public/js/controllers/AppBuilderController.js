@@ -17,6 +17,7 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 				TITLE : "Schedules",
 				ORDER : "1",
 				ICON : "/assets/img/menu/schedules.png",
+				DESC : "Individual Sessions in your events",
 				ENABLED : true,
 				HOME : false,
 				STATE : {
@@ -31,6 +32,7 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			TITLE : "Breakouts",
 			ORDER : "21",
 			ICON : "/assets/img/menu/breakouts.png",
+			DESC : "Group sessions into different breakouts",
 			ENABLED : false,
 			HOME : false,
 			STATE : {
@@ -45,6 +47,7 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			TITLE : "Events",
 			ORDER : "3",
 			ICON : "/assets/img/menu/events.png",
+			DESC : "Special events common to all participants",
 			ENABLED : false,
 			HOME : false,
 			STATE : {
@@ -59,6 +62,7 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			TITLE : "Sponsors",
 			ORDER : "4",
 			ICON : "/assets/img/menu/sponsors.png",
+			DESC : "Information on sponsors who sponsor your conference",
 			ENABLED : true,
 			HOME : true,
 			SUB_STATE : true,
@@ -81,6 +85,7 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			TITLE : "Speakers",
 			ORDER : "5",
 			ICON : "/assets/img/menu/speakers.png",
+			DESC : "List of Keynote speakers of the event",
 			ENABLED : true,
 			HOME : false,
 			STATE : {
@@ -95,6 +100,7 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			TITLE : "FAQs",
 			ORDER : "6",
 			ICON : "/assets/img/menu/faq.png",
+			DESC : "Frequently asked questions about some general info",
 			ENABLED : false,
 			HOME : false,
 			STATE : {
@@ -109,6 +115,7 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			TITLE : "Exhibitor",
 			ORDER : "7",
 			ICON : "/assets/img/menu/exhibitor.png",
+			DESC : "Firms who are exhibiting their products in your conference",
 			ENABLED : false,
 			HOME : false,
 			STATE : {
@@ -123,6 +130,7 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			TITLE : "Feedback",
 			ORDER : "18",
 			ICON : "/assets/img/menu/feedback.png",
+			DESC : "Feedback form to be filled out by the participants",
 			ENABLED : true,
 			HOME : false,
 			STATE : {
@@ -137,6 +145,7 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			TITLE : "Gallery",
 			ORDER : "9",
 			ICON : "/assets/img/menu/gallery.png",
+			DESC : "Gallery of pics from your previous events",
 			ENABLED : true,
 			HOME : false,
 			STATE : {
@@ -151,6 +160,7 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			TITLE : "List",
 			ORDER : "10",
 			ICON : "/assets/img/menu/list.png",
+			DESC : "Any information that you could group as a list ",
 			ENABLED : true,
 			HOME : false,
 			STATE : {
@@ -165,6 +175,7 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			TITLE : "Web Site",
 			ORDER : "11",
 			ICON : "/assets/img/menu/www.png",
+			DESC : "Web view of your company or event site",
 			ENABLED : false,
 			HOME : false,
 			STATE : {
@@ -179,6 +190,7 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			TITLE : "FB Page",
 			ORDER : "12",
 			ICON : "/assets/img/menu/fb.png",
+			DESC : "Integrate your FB page into the app",
 			ENABLED : true,
 			HOME : false,
 			STATE : {
@@ -193,6 +205,7 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			TITLE : "YouTube Channel",
 			ORDER : "13",
 			ICON : "/assets/img/menu/youtube.png",
+			DESC : "Integrate your YouTube channel into the app",
 			ENABLED : false,
 			HOME : false,
 			STATE : {
@@ -207,6 +220,7 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			TITLE : "Twitter Handle",
 			ORDER : "14",
 			ICON : "/assets/img/menu/twitter.png",
+			DESC : "Integrate your Twitter handle with the app",
 			ENABLED : false,
 			HOME : false,
 			STATE : {
@@ -221,6 +235,7 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			TITLE : "Venue Map",
 			ORDER : "15",
 			ICON : "/assets/img/menu/maps.png",
+			DESC : "A venue Map of the area where the event takes place",
 			ENABLED : true,
 			HOME : false,
 			STATE : {
@@ -235,6 +250,7 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			TITLE : "Emergency Contact",
 			ORDER : "16",
 			ICON : "/assets/img/menu/emergency.png",
+			DESC : "Emergency Mobile numbers and other contact info",
 			ENABLED : false,
 			HOME : false,
 			STATE : {

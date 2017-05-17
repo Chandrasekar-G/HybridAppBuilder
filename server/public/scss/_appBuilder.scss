@@ -43,6 +43,12 @@
         font-weight: 500;
         font-size: 25px;
     }
+    .text-weak{
+        padding: 10px 0;
+        color: grey;
+        font-size: 16px;
+        font-weight: 200;
+    }
 
     .close-features{
         position: absolute;
@@ -64,7 +70,7 @@
 
         .features-items{
             width: 250px;
-            height: 180px;
+            height: 250px;
             border: 1px solid #d7dde0;
             border-radius: 3px;
             display: inline-block;
@@ -75,13 +81,19 @@
 
             .feature-icon{
                 height: 60px;
-                margin-top: 5px;
+                margin-top: 20px;
             }
             .feature-text{
                 font-weight: 400;
-                font-size: 20px;
+                font-size: 22px;
+                padding: 12px;
             }
-
+            .desc-text{
+                color: grey;
+                font-size: 16px;
+                font-weight: 200;
+                padding: 0 15px;
+            }
             .add-feature{
                 color: #FFF;
                 border: 1px solid #439fd8;
@@ -126,7 +138,10 @@
             border-radius: 3px;
             cursor:pointer;
         }
-
+        .home{
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
         .selected-button{
             background: #439fd8;
             color: #FFF;

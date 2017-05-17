@@ -28,12 +28,13 @@
     <div class="slide-in features">
         <div class="features-content">
             <div class="text-strong">Features</div>
-            <div>Add a new feature to your guide!</div>
+            <div class="text-weak">Add a new feature to your guide!</div>
             <div class="close-features" ng-click="hideFeatures()" >X</div>
             <div class="features-wrapper">
                     <div class="features-items" ng-repeat="(key, features) in featureModules"> 
                         <img src="{{features.ICON}}" class="feature-icon">
                         <div class="feature-text">{{features.TITLE}}</div>
+                        <div class="desc-text">{{features.DESC}}</div>
                         <div class="add-feature" ng-click="addFeatureToSideMenu(key)" >Add</div>
                     </div>
             </div>
