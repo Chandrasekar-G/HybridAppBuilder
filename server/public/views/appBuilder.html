@@ -9,7 +9,7 @@
         <div class="header">CHOOSE THEME</div>
         <div class="color-box" ng-repeat="colors in colorPalette" style="background:{{colors}};" ng-click="applyTheme(colors)">{{colors}}</div>
     </div>
-    <div class="phone-shell" ng-mouseover="showFeatureOverlay()" data-ng-mouseleave="hideFeatureOverlay()">
+    <div class="phone-shell" ng-mouseover="showFeatureOverlay()" ng-mouseleave="hideFeatureOverlay()">
         <div class="app-workarea">
             <div class="feature-overlay">
                 <div ng-click="showFeatures()">+</div>

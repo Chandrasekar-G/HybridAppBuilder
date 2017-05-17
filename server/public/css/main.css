@@ -173,10 +173,14 @@ hr {
   height: 350px;
   border: 1px solid #ddd;
   display: inline-block;
-  margin: 10px; }
+  margin-top: 20px;
+  margin-right: 20px; }
   .item-box .box-icon {
     width: 100px;
     margin: 40px; }
+  .item-box .template-name {
+    font-size: 20px;
+    letter-spacing: 2px; }
   .item-box .box-text {
     display: inline-block;
     margin: 10px;
@@ -185,7 +189,10 @@ hr {
     display: inline-block;
     border: 1px solid #ddd;
     padding: 5px 50px 5px 50px;
-    margin: 15px; }
+    margin: 15px;
+    cursor: pointer; }
+  .item-box .box-button:hover {
+    background: #f2f2f2; }
 
 .template-wrapper {
   background: white;

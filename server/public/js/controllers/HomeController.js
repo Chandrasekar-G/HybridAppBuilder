@@ -23,6 +23,18 @@ function HomeController($scope, $q, APP_MESSAGES, utils) {
 		$scope.navigate('/template');	
 	};
 
+	$scope.addBoxShadow = function($event){
+		
+		var parentBox =  angular.element($event.target.parentNode);
+		parentBox.css("box-shadow","0px 2px 2px rgba(0, 0, 0, 0.3)");
+	};
+
+	$scope.removeBoxShadow = function($event){
+		
+		var parentBox =  angular.element($event.target.parentNode);
+		parentBox.css("box-shadow","none");
+	};
+
 	function init() {
 		
 		console.log('Home Controller');

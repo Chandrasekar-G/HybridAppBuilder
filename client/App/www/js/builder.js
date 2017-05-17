@@ -1,6 +1,11 @@
 var BUILDER = {
-    APP_NAME : "IBM Connect",
-    APP_ICONS : "icons",
+    APP_NAME : "Codes N Gears",
+    APP_ICON : "icon.png",
+    START_DATE :"",
+    END_DATE : "",
+    DESC : "",
+    PACKAGE_NAME : "",
+    LOCATION : "",
     COMPONENTS : {
         SCHEDULES : {
             TITLE : "Sessions",

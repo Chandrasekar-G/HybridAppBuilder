@@ -3,6 +3,8 @@
     letter-spacing: 0.75px;
 }
 
+$theme-color : "#00BBD3";
+
 @keyframes boxSpin{
   0%{
     transform: translate(-10px, 0px);
@@ -55,4 +57,12 @@
   border: 5px solid #FF4136;
   box-shadow: 10px 0px #39CCCC, 10px 0px #01FF70;
   animation: shadowSpin 1s ease-in-out infinite;
+}
+
+/*
+Side Menu Styles
+*/
+.bar-stable.nav-bar-container{
+  background-color: $theme-color;
+  color:white;
 }

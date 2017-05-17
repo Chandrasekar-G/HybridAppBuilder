@@ -40,6 +40,13 @@
   box-shadow: 10px 0px #39CCCC, 10px 0px #01FF70;
   animation: shadowSpin 1s ease-in-out infinite; }
 
+/*
+Side Menu Styles
+*/
+.bar-stable.nav-bar-container {
+  background-color: "#00BBD3";
+  color: white; }
+
 .menuContainer .menuItem {
   border-style: none; }
   .menuContainer .menuItem .icon img {
