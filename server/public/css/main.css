@@ -9,10 +9,13 @@ body, html {
   height: 150px; }
   .app-header p {
     color: #F4F4F4;
-    font-size: 40px;
     font-weight: lighter;
     text-align: center;
     padding: 4px; }
+  .app-header .title {
+    font-size: 45px; }
+  .app-header .sub-title {
+    font-size: 30px; }
 
 .login_box {
   background: #f7f7f7;
@@ -189,7 +192,10 @@ hr {
   text-align: center; }
 
 .information-box {
-  width: 70%;
+  float: left;
+  left: 50px;
+  top: 40px;
+  width: 50%;
   height: 600px;
   border: 1px solid #ddd;
   display: inline-block;

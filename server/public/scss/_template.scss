@@ -4,7 +4,10 @@
 }
 
 .information-box{
-    width: 70%;
+    float: left;
+    left: 50px;
+    top: 40px;
+    width: 50%;
     height: 600px;
     border: 1px solid #ddd;
     display: inline-block;

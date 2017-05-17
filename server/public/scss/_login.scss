@@ -14,10 +14,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b9d2e0', end
 
     p{
         color: #F4F4F4;
-        font-size: 40px;
         font-weight: lighter;
         text-align: center;
         padding: 4px;
+    }
+    .title{
+        font-size: 45px;
+    }
+    .sub-title{
+        font-size: 30px;
     }
 }
 .login_box{
