@@ -1,16 +1,14 @@
 .template-wrapper{
     background: white;
-    text-align: center
 }
 
 .information-box{
-    width: 70%;
-    height: 600px;
+    width: 50%;
+    height: 700px;
     border: 1px solid #ddd;
-    display: inline-block;
-    margin: 10px;
-    margin-bottom:0;
-    position: relative;
+    float: left;
+    margin-left: 12%;
+    margin-top: 4%;
 
     .frm_row{
         display: flex;
@@ -52,27 +50,58 @@
                 width: 45% !important;
             }
         }
+
+        .cover-container{
+            width: 85%;
+            height: 242px;
+            border: 1px solid #dddddd;
+            margin: 0 auto;
+
+            .cover-picture{
+                background-image: url(https://s3.amazonaws.com/media.guidebook.com/upload/gears/guidetemplate/cover/conference.png);
+                padding-bottom: 37.5%;
+                background-position: center center;
+                background-size: 700px 200px;
+                margin: 6px;
+            }
+        }
     }
 }
 
+.detail-box{
+    width: 28%;
+    height: 700px;
+    float: left;
+    margin-top: 4%;
+    padding: 30px;
+    padding-top: 0;
+    color: #757575;
+
+    .detail-header{
+        font-size: 22px;
+        letter-spacing: 2px;
+        color: black;
+        margin-top: 0;
+    }
+}
 .save-box{
-    width: 70%;
+
+    width: 50%;
     height: 100px;
     border: 1px solid #ddd;
-    display: inline-block;
-    position: relative;
-
+    float: left;
+    margin-left: 12%;
     .ftr_button{
         background: linear-gradient(to bottom, #58aadc, #2e94d4);
         border-color: #2F77A3;
         color: #fff;
         position: relative;
-        height: 40px;
         line-height: 40px;
         padding: 0 16px;
         cursor: pointer;
-        outline: none;
         top: 30px;
-        left: 30%;
+        left: 70%;
+        width: 152px;
+        border-radius: 5px;
     }
 }
