@@ -351,6 +351,12 @@ hr {
     .slide-in .module-header .module-name {
       font-size: 20px;
       padding: 5px; }
+  .slide-in .is-home {
+    position: absolute;
+    font-weight: 400;
+    font-size: 18px;
+    top: 20px;
+    left: 350px; }
   .slide-in .buld-upload {
     padding: 10px;
     text-align: center; }

@@ -16,8 +16,10 @@ function AppBuilderController($scope,$rootScope, $q, APP_MESSAGES, utils, $timeo
 	
 	$scope.fetchData = fetchData;
 
-	$scope.colorPalette = [ "#439FD8","#1377B3","#E63462","#E06962","#A25C92",
-							"#C16CAE","#379474","#50B391","#B3B7B2","#777971"];
+	$scope.colorPalette = [ {BG:"#439FD8",COLOR:"#d7dde0"},{BG:"#1377B3",COLOR:"#d7dde0"},{BG:"#E63462",COLOR:"#d7dde0"},
+	{BG:"#E06962",COLOR:"#d7dde0"},{BG:"#A25C92",COLOR:"#d7dde0"},{BG:"#C16CAE",COLOR:"#d7dde0"},{BG:"#379474",COLOR:"#d7dde0"},
+	{BG:"#50B391",COLOR:"#d7dde0"},{BG:"#B3B7B2",COLOR:"#d7dde0"},{BG:"#777971",COLOR:"#d7dde0"},{BG:"#18154A",COLOR:"#4990E2"}
+	];
 	
 	$scope.modules = [
        
@@ -222,6 +224,7 @@ function AppBuilderController($scope,$rootScope, $q, APP_MESSAGES, utils, $timeo
 			DESC : "Integrate your FB page into the app",
 			ENABLED : false,
 			HOME : false,
+			LINK : "https://www.facebook.com/",
 			STATE : {
 				NAME : 'app.fb',
 				URL : "/fb",
@@ -302,10 +305,10 @@ function AppBuilderController($scope,$rootScope, $q, APP_MESSAGES, utils, $timeo
 		$scope.appInfo = JSON.parse(localStorage.getItem("appInfo"));
 	};
 
-	$scope.applyTheme = function(colorCode){
+	$scope.applyTheme = function(colorCode,textColor){
 		var sideMenuElements = angular.element( document.getElementsByClassName( 'side-menu-items' ) );
 		sideMenuElements.css("background",colorCode);
-		sideMenuElements.css("color","#d7dde0");
+		sideMenuElements.css("color",textColor);
 	};
 
 	$scope.addFeatureToSideMenu = function(featureKey){
@@ -374,6 +377,16 @@ function AppBuilderController($scope,$rootScope, $q, APP_MESSAGES, utils, $timeo
 		phoneShell.css("right",0);
 		var toggleContainer = angular.element( document.querySelector( '.toggle-container' ) );
 		toggleContainer.css("right",0);
+	};
+
+	$scope.handleIsHome = function(featureKey){
+
+		for(var i = 0 ; i < $scope.modules.length ; i++){
+
+			if($scope.modules[i].ID != featureKey){
+				$scope.modules[i].HOME =  false;
+			}
+		}
 	};
 
 	function CSVToArray(strData, strDelimiter) {

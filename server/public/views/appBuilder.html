@@ -7,7 +7,7 @@
     </div>
     <div class="color-palette">
         <div class="header">CHOOSE THEME</div>
-        <div class="color-box" ng-repeat="colors in colorPalette" style="background:{{colors}};" ng-click="applyTheme(colors)">{{colors}}</div>
+        <div class="color-box" ng-repeat="colors in colorPalette" style="background:{{colors.BG}};color:{{colors.COLOR}}" ng-click="applyTheme(colors.BG,colors.COLOR)">{{colors.BG}}</div>
     </div>
     <div class="phone-shell" ng-mouseover="showFeatureOverlay()" ng-mouseleave="hideFeatureOverlay()">
         <div class="app-workarea">
@@ -42,23 +42,40 @@
         </div>
         <div class="schedules content"  ng-show="slideIn.content == 'SCHEDULES'" >
             <div class="module-header">
-                 <img src="{{featureModules.SCHEDULES.ICON}}" class="module-icon">
+                 <img src="/assets/img/menu/{{featureModules.SCHEDULES.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.SCHEDULES.TITLE">
             </div>
+            <label class="is-home">
+                <input type="checkbox" ng-model="featureModules.SCHEDULES.HOME" ng-change="handleIsHome('SCHEDULES')">
+                 : isHome</label>
             <div class="close-features" ng-click="hideSlideIn()" >X</div>
+            <div class="buld-upload">
+                <input class="choose-file" type="file" file-reader="uploadFile.file.file" onchange="angular.element(this).scope().fetchData()" required/>
+                <div class="upload-button" ng-click="uploadDataToBackend('Sessions')">Bulk Import</div>
+            </div>
         </div>
          <div class="sponsors content"  ng-show="slideIn.content == 'SPONSORS'" >
             <div class="module-header">
-                 <img src="{{featureModules.SPONSORS.ICON}}" class="module-icon">
+                 <img src="/assets/img/menu/{{featureModules.SPONSORS.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.SPONSORS.TITLE">
             </div>
+            <label class="is-home">
+                <input type="checkbox" ng-model="featureModules.SPONSORS.HOME" ng-change="handleIsHome('SPONSORS')">
+                 : isHome</label>
             <div class="close-features" ng-click="hideSlideIn()" >X</div>
+            <div class="buld-upload">
+                <input class="choose-file" type="file" file-reader="uploadFile.file.file" onchange="angular.element(this).scope().fetchData()" required/>
+                <div class="upload-button" ng-click="uploadDataToBackend('Sponsors')">Bulk Import</div>
+            </div>
         </div>
          <div class="speakers content"  ng-show="slideIn.content == 'SPEAKERS'" >
              <div class="module-header">
-                 <img src="{{featureModules.SPEAKERS.ICON}}" class="module-icon">
+                 <img src="/assets/img/menu/{{featureModules.SPEAKERS.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.SPEAKERS.TITLE">
             </div>
+            <label class="is-home">
+                <input type="checkbox" ng-model="featureModules.SPEAKERS.HOME" ng-change="handleIsHome('SPEAKERS')">
+                 : isHome</label>
             <div class="close-features" ng-click="hideSlideIn()" >X</div>
             <div class="buld-upload">
                 <input class="choose-file" type="file" file-reader="uploadFile.file.file" onchange="angular.element(this).scope().fetchData()" required/>
@@ -102,30 +119,58 @@
         </div>
          <div class="gallery content"  ng-show="slideIn.content == 'GALLERY'" >
             <div class="module-header">
-                 <img src="{{featureModules.GALLERY.ICON}}" class="module-icon">
+                 <img src="/assets/img/menu/{{featureModules.GALLERY.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.GALLERY.TITLE">
             </div>
+            <label class="is-home">
+                <input type="checkbox" ng-model="featureModules.GALLERY.HOME" ng-change="handleIsHome('GALLERY')">
+                 : isHome</label>
             <div class="close-features" ng-click="hideSlideIn()" >X</div>
+            <div class="buld-upload">
+                <input class="choose-file" type="file" file-reader="uploadFile.file.file" onchange="angular.element(this).scope().fetchData()" required/>
+                <div class="upload-button" ng-click="uploadDataToBackend('Gallery')">Bulk Import</div>
+            </div>
         </div>
         <div class="custom-list content"  ng-show="slideIn.content == 'CUSTOM_LIST'" >
              <div class="module-header">
-                 <img src="{{featureModules.CUSTOM_LIST.ICON}}" class="module-icon">
+                 <img src="/assets/img/menu/{{featureModules.CUSTOM_LIST.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.CUSTOM_LIST.TITLE">
             </div>
+            <label class="is-home">
+                <input type="checkbox" ng-model="featureModules.CUSTOM_LIST.HOME" ng-change="handleIsHome('CUSTOM_LIST')">
+                 : isHome</label>
             <div class="close-features" ng-click="hideSlideIn()" >X</div>
+            <div class="buld-upload">
+                <input class="choose-file" type="file" file-reader="uploadFile.file.file" onchange="angular.element(this).scope().fetchData()" required/>
+                <div class="upload-button" ng-click="uploadDataToBackend('List')">Bulk Import</div>
+            </div>
         </div>
         <div class="fb content"  ng-show="slideIn.content == 'FB'" >
              <div class="module-header">
-                 <img src="{{featureModules.FB.ICON}}" class="module-icon">
+                 <img src="/assets/img/menu/{{featureModules.FB.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.FB.TITLE">
             </div>
+            <label class="is-home">
+                <input type="checkbox" ng-model="featureModules.FB.HOME" ng-change="handleIsHome('FB')">
+                 : isHome</label>
             <div class="close-features" ng-click="hideSlideIn()" >X</div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>FB Page Link</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <input type="input" class="module_text" ng-model="featureModules.FB.LINK">
+                </div>
+            </div>
         </div>
         <div class="map content"  ng-show="slideIn.content == 'MAP'" >
             <div class="module-header">
-                 <img src="{{featureModules.MAP.ICON}}" class="module-icon">
+                 <img src="/assets/img/menu/{{featureModules.MAP.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.MAP.TITLE">
             </div>
+            <label class="is-home">
+                <input type="checkbox" ng-model="featureModules.MAP.HOME" ng-change="handleIsHome('MAP')">
+                 : isHome</label>
             <div class="close-features" ng-click="hideSlideIn()" >X</div>
         </div>
     </div>
