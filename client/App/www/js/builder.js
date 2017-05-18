@@ -10,7 +10,7 @@ var BUILDER = {
         SCHEDULES : {
             TITLE : "Sessions",
             ORDER : "1",
-            ICON : "menu/schedules.png",
+            ICON : "schedules.png",
             ENABLED : true,
             HOME : false,
             STATE : {
@@ -31,7 +31,7 @@ var BUILDER = {
         BREAKOUTS : {
             TITLE : "Breakouts",
             ORDER : "21",
-            ICON : "menu/breakouts.png",
+            ICON : "breakouts.png",
             ENABLED : false,
             HOME : false,
             STATE : {
@@ -45,7 +45,7 @@ var BUILDER = {
         EVENTS : {
             TITLE : "Events",
             ORDER : "3",
-            ICON : "menu/events.png",
+            ICON : "events.png",
             ENABLED : false,
             HOME : false,
             STATE : {
@@ -59,7 +59,7 @@ var BUILDER = {
         SPONSORS : {
             TITLE : "Sponsors",
             ORDER : "4",
-            ICON : "menu/sponsors.png",
+            ICON : "sponsors.png",
             ENABLED : true,
             HOME : true,
             SUB_STATE : true,
@@ -81,7 +81,7 @@ var BUILDER = {
         SPEAKERS : {
             TITLE : "Speakers",
             ORDER : "5",
-            ICON : "menu/speakers.png",
+            ICON : "speakers.png",
             ENABLED : true,
             HOME : false,
             STATE : {
@@ -95,7 +95,7 @@ var BUILDER = {
         FAQ : {
             TITLE : "FAQs",
             ORDER : "6",
-            ICON : "menu/faq.png",
+            ICON : "faq.png",
             ENABLED : false,
             HOME : false,
             STATE : {
@@ -109,7 +109,7 @@ var BUILDER = {
         EXHIBITORS : {
             TITLE : "Exhibitor",
             ORDER : "7",
-            ICON : "menu/exhibitor.png",
+            ICON : "exhibitor.png",
             ENABLED : false,
             HOME : false,
             STATE : {
@@ -123,7 +123,7 @@ var BUILDER = {
         FEEDBACK : {
             TITLE : "Feedback",
             ORDER : "18",
-            ICON : "menu/feedback.png",
+            ICON : "feedback.png",
             ENABLED : true,
             HOME : false,
             STATE : {
@@ -137,7 +137,7 @@ var BUILDER = {
         GALLERY : {
             TITLE : "Gallery",
             ORDER : "9",
-            ICON : "menu/gallery.png",
+            ICON : "gallery.png",
             ENABLED : true,
             HOME : false,
             STATE : {
@@ -151,7 +151,7 @@ var BUILDER = {
         CUSTOM_LIST : {
             TITLE : "Miscellaneous",
             ORDER : "10",
-            ICON : "menu/list.png",
+            ICON : "list.png",
             ENABLED : true,
             HOME : false,
             STATE : {
@@ -165,7 +165,7 @@ var BUILDER = {
         WEB_VIEW : {
             TITLE : "Web Site",
             ORDER : "11",
-            ICON : "menu/www.png",
+            ICON : "www.png",
             ENABLED : false,
             HOME : false,
             STATE : {
@@ -179,7 +179,7 @@ var BUILDER = {
         FB : {
             TITLE : "FB Page",
             ORDER : "12",
-            ICON : "menu/fb.png",
+            ICON : "fb.png",
             ENABLED : true,
             HOME : false,
             STATE : {
@@ -193,7 +193,7 @@ var BUILDER = {
         YOUTUBE : { 
             TITLE : "YouTube Channel",
             ORDER : "13",
-            ICON : "menu/youtube.png",
+            ICON : "youtube.png",
             ENABLED : false,
             HOME : false,
             STATE : {
@@ -207,7 +207,7 @@ var BUILDER = {
         TWITTER : {
             TITLE : "Twitter Handle",
             ORDER : "14",
-            ICON : "menu/twitter.png",
+            ICON : "twitter.png",
             ENABLED : false,
             HOME : false,
             STATE : {
@@ -221,7 +221,7 @@ var BUILDER = {
         MAP : {
             TITLE : "Venue Map",
             ORDER : "15",
-            ICON : "menu/maps.png",
+            ICON : "maps.png",
             ENABLED : true,
             HOME : false,
             STATE : {
@@ -235,7 +235,7 @@ var BUILDER = {
         EMERGENCY_CONTACT : {
             TITLE : "Emergency Contact",
             ORDER : "16",
-            ICON : "menu/emergency.png",
+            ICON : "emergency.png",
             ENABLED : false,
             HOME : false,
             STATE : {

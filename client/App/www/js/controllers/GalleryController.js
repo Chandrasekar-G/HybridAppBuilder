@@ -14,9 +14,14 @@ function GalleryController($scope, $rootScope, $state, $ionicModal, utils, $q) {
 		let deferred = $q.defer();
         utils.callBackend(APP.DB.RequestType.GET, APP.DB.DocID.Gallery, requestData, true)
         .then((response) => {
-            deferred.resolve(response);
             $scope.items = response;
+            console.log(response);
+            for(var item in $scope.items) {
+                var src = $scope.items[item].src;
+                $scope.items[item].src = "img/gallery/" + src;
+            }
             utils.localStorage.setObject("gallery", $scope.items);
+            deferred.resolve(response);
             utils.hideSpinner();
         }, (error) => {
             var message = utils.handleError(error);
