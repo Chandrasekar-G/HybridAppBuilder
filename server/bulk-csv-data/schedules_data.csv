@@ -1,0 +1,24 @@
+id,name,timeStart,timeEnd,location,tracks,color,time
+1,Breakfast,8:00 AM,9:00 AM,Main hallway,Food,#DD7373,8:00 AM
+2,Meet and Greet,9:00 AM,9:15 AM,Main hallway,Food,#DD7373,8:00 AM
+3,Introduction to Appcamp.io,9:15 AM,9:30 AM,Room 2203,Ionic,#58A4B0,9:15 AM
+4,Getting started with Ionic,9:30 AM,9:45 AM,Room 2202,Ionic,#58A4B0,9:15 AM
+5,Tooling for Ionic,9:45 AM,10:00 AM,Room 2201,Tooling,#401F3E,9:15 AM
+6,Migrating to Ionic2,10:00 AM,10:15 AM,Room 2201,Ionic,#58A4B0,10:00 AM
+7,Whats new in Angular,10:15 AM,10:30 AM,Room 2203,Angular,#0C7C59,10:00 AM
+8,The evolution of Ionicons,10:30 AM,10:45 AM,Room 2202,Design,#7C99B4,10:00 AM
+9,Ionic.io Services,10:45 AM,11:00 AM,Room 2202,Services,#39A0ED,10:00 AM
+10,Ionic Workshop,11:00 AM,11:45 AM,Room 2201,Workshop,#C1ABA6,11:00 AM
+11,Community Interaction,11:30 AM,11:50 AM,Room 2203,Communication,#F564A9,11:00 AM
+12,Navigation in Ionic,11:30 AM,12:00 PM,Room 2203,Navigation,#FCD757,11:00 AM
+13,Lunch,12:00 PM,1:00 PM,Auditorium,Food,#DD7373,12:00 PM
+14,Ionic in the Enterprise,1:00 PM,1:15 PM,Room 2201,Communication,#F564A9,1:00 PM
+15,Ionic Worldwide,1:15 PM,1:30 PM,Room 2201,Communication,#F564A9,1:00 PM
+16,The Ionic package service,1:30 PM,2:00 PM,Room 2203,Services,#39A0ED,1:00 PM
+17,Push Notifications in Ionic,2:00 PM,2:30 PM,Room 2202,Services,#39A0ED,2:00 PM
+18,Ionic Documentation,2:30 PM,2:45 PM,Room 2202,Documentation,#C1ABA6,2:00 PM
+19,UX planning in Ionic,2:45 PM,3:00 PM,Room 2203,Design,#7C99B4,2:00 PM
+20,Directives in Ionic,3:00 PM,3:30 PM,Room 2201,Angular,#0C7C59,3:00
+21,Mobile States,3:30 PM,3:45 PM,Room 2202,Navigation,#FCD757,3:00
+22,Progressive Web Apps,3:45 PM,4:15 PM,Room 2203,Workshop,#C1ABA6,3:00
+23,Observables,4:15 PM,4:45 PM,Room 2204,Workshop,#C1ABA6,3:00
