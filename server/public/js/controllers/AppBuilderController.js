@@ -471,7 +471,6 @@ function AppBuilderController($scope,$rootScope, $q, APP_MESSAGES, utils, $timeo
 
     };
 
-
 	$scope.uploadDataToBackend = function(uploadKey){
 	
 		var uploadData = {};
@@ -479,25 +478,52 @@ function AppBuilderController($scope,$rootScope, $q, APP_MESSAGES, utils, $timeo
 		var docs = [];
 		var dataObject = JSON.parse($scope.uploadData);
 
-		primaryUploadData["_id"] = uploadKey+"_"+($scope.appInfo.name.replace(/\s/g,'')).toLowerCase();
-		primaryUploadData["documentType"] = uploadKey;
-		primaryUploadData["data"] = dataObject;
-		docs.push(primaryUploadData);
-		uploadData["docs"] = docs;
 
-		console.log(uploadData);
-		
+		var requestData = {};
 		let deferred = $q.defer();
-       	utils.callBackend(APP.DB.RequestType.POST, APP.DB.MethodName.Create, uploadData, true)
+        utils.callBackend(APP.DB.RequestType.GET,uploadKey+"_"+($scope.appInfo.name.replace(/\s/g,'')).toLowerCase(), requestData, true)
         .then((response) => {
             deferred.resolve(response);
 			console.log(response);
+			
+			uploadData = response.data;
+			uploadData["data"] = dataObject;
+		
+			console.log(uploadData);
+			
+			let deferredUpload = $q.defer();
+			utils.callBackend(APP.DB.RequestType.PUT, uploadKey+"_"+($scope.appInfo.name.replace(/\s/g,'')).toLowerCase(), uploadData, true)
+			.then((response) => {
+				deferredUpload.resolve(response);
+				console.log(response);
+			}, (error) => {
+				var message = utils.handleError(error);
+				deferredUpload.reject(message);
+			});
+
         }, (error) => {
-            var message = utils.handleError(error);
+			var message = utils.handleError(error);
             deferred.reject(message);
+
+			primaryUploadData["_id"] = uploadKey+"_"+($scope.appInfo.name.replace(/\s/g,'')).toLowerCase();
+			primaryUploadData["documentType"] = uploadKey;
+			primaryUploadData["data"] = dataObject;
+			docs.push(primaryUploadData);
+			uploadData["docs"] = docs;
+
+			console.log(uploadData);
+			
+			let deferredInsert = $q.defer();
+			utils.callBackend(APP.DB.RequestType.POST, APP.DB.MethodName.Create, uploadData, true)
+			.then((response) => {
+				deferredInsert.resolve(response);
+				console.log(response);
+			}, (error) => {
+				var message = utils.handleError(error);
+				deferredInsert.reject(message);
+			});
         });
 
-        return deferred.promise;
 	
 	};
 

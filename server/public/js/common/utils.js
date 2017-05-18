@@ -54,7 +54,7 @@ function Core() {
             if (requestData) {
                 if (requestType == APP.DB.RequestType.GET) {
                     req.params = requestData;
-                } else if (requestType == APP.DB.RequestType.POST) {
+                } else {
                     req.data = requestData;
                 }
             }
