@@ -464,14 +464,11 @@ function AppBuilderController($scope,$rootScope, $q, APP_MESSAGES, utils, $timeo
 		var uploadData = {};
 		var primaryUploadData = {};
 		var docs = [];
-
-		var data = [];
 		var dataObject = JSON.parse($scope.uploadData);
-		data.push(dataObject);
 
 		primaryUploadData["_id"] = uploadKey+"_"+($scope.appInfo.name.replace(/\s/g,'')).toLowerCase();
 		primaryUploadData["documentType"] = uploadKey;
-		primaryUploadData["data"] = data;
+		primaryUploadData["data"] = dataObject;
 		docs.push(primaryUploadData);
 		uploadData["docs"] = docs;
 
