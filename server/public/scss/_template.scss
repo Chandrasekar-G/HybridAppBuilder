@@ -12,6 +12,10 @@
     left: 10px;
     background-color: white;
     border-radius: 5px;
+    width: 30px;
+    overflow: hidden;
+    height: 30px;
+    outline: 0;
 }
 
 
@@ -76,13 +80,15 @@
                 background-image: url(https://s3.amazonaws.com/media.guidebook.com/upload/gears/guidetemplate/cover/conference.png);
                 padding-bottom: 30%;
                 background-position: center center;
-                background-size: 700px 100px;
+                //background-size: 700px 100px;
+                background-size: contain;
                 margin: 6px;
                 margin-left:20px; 
             }
             .profile-picture{
                 background-image: url(https://s3.amazonaws.com/media.guidebook.com/upload/sX34UzP3ve5vp7fqE5DAQLMIHLJdCfAtNhxwOqog/PRTCF2HqvMyikMrwI7FMu2boomcpiAdBpVf7.png);
                 background-color: white;
+                background-size: contain;
                 height: 100px;
                 width: 100px;
                 position: relative;

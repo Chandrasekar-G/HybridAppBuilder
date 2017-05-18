@@ -49,11 +49,13 @@
        </div>
         <div class="frm_row ">
            <div class="cover-container">
-                <div class="cover-picture">
-                    <span class="file-upload"><i class="fa fa-edit"></i></span>
+                <div class="cover-picture" style="background-image: url({{coverPicture}})">
+                    <input class="file-upload fa fa-edit" type = "file" ng-model-instant
+                    onchange="angular.element(this).scope().uploadCoverPicture(this)" />
                 </div>
-                <div class="profile-picture">
-                    <span class="file-upload"><i class="fa fa-edit"></i></span>
+                <div class="profile-picture" style="background-image: url({{profilePicture}})">
+                    <input class="file-upload fa fa-edit" type = "file" ng-model-instant
+                    onchange="angular.element(this).scope().uploadProfilePicture(this)" />
                 </div>
 
            </div>
