@@ -12,7 +12,7 @@ function GalleryController($scope, $rootScope, $state, $ionicModal, utils, $q) {
 		var requestData = {};
         utils.showSpinner();
 		let deferred = $q.defer();
-        utils.callBackend(APP.DB.RequestType.GET, APP.DB.DocID.Gallery, requestData, true)
+        utils.callBackend(APP.DB.RequestType.GET, APP.DB.DocID.Gallery + BUILDER.APP_NAME.replace(/ /g,'').toLowerCase(), requestData, true)
         .then((response) => {
             $scope.items = response;
             console.log(response);

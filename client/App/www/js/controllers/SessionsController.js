@@ -19,7 +19,7 @@ function SessionsController($scope, $rootScope, $state, $ionicModal, utils, $q) 
 		var requestData = {};
         utils.showSpinner();
 		let deferred = $q.defer();
-        utils.callBackend(APP.DB.RequestType.GET, APP.DB.DocID.Sessions, requestData, true)
+        utils.callBackend(APP.DB.RequestType.GET, APP.DB.DocID.Sessions  + BUILDER.APP_NAME.replace(/ /g,'').toLowerCase(), requestData, true)
         .then((response) => {
             deferred.resolve(response);
             $scope.SessionGroup = response[0].groups;

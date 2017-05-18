@@ -1,5 +1,5 @@
 var BUILDER = {
-    APP_NAME : "Codes N Gears",
+    APP_NAME : "Kickoff",
     APP_ICON : "icon.png",
     START_DATE :"",
     END_DATE : "",

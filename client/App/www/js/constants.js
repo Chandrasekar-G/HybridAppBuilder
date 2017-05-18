@@ -53,11 +53,11 @@ var APP = {
         },
         DocID : {
             Credentials : "Credentails_console",
-            Sponsors : "Sponsors_Kickoff",
-            Gallery : "Gallery_Kickoff",
-            Speakers : "Speakers_Kickoff",
-            List : "List_Kickoff",
-            Sessions : "Sessions_Kickoff"
+            Sponsors : "Sponsors_",
+            Gallery : "Gallery_",
+            Speakers : "Speakers_",
+            List : "List_",
+            Sessions : "Sessions_"
         },
         ERROR_CODES : {
             SERVER_ERROR : "SERVER_ERROR",

@@ -13,7 +13,7 @@ function SponsorsController($scope, $rootScope, $state, $ionicModal, $q, utils) 
 		var requestData = {};
         utils.showSpinner();
 		let deferred = $q.defer();
-        utils.callBackend(APP.DB.RequestType.GET, APP.DB.DocID.Sponsors, requestData, true)
+        utils.callBackend(APP.DB.RequestType.GET, APP.DB.DocID.Sponsors + BUILDER.APP_NAME.replace(/ /g,'').toLowerCase(), requestData, true)
         .then((response) => {
             deferred.resolve(response);
             $scope.Sponsors = response;
