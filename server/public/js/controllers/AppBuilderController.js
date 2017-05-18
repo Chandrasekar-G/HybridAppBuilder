@@ -1,24 +1,41 @@
 controllers.controller(APP.CONTROLLERS.AppBuilderController, AppBuilderController);
 
-AppBuilderController.$inject = ['$scope', '$q', APP.MESSAGES, 'utils'];
+AppBuilderController.$inject = ['$scope','$rootScope', '$q', APP.MESSAGES, 'utils','$timeout','$http'];
 
-function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
+function AppBuilderController($scope,$rootScope, $q, APP_MESSAGES, utils, $timeout, $http) {
+
+	$scope.appInfo = {};
+
+	$scope.uploadFile = {
+		file : {
+			file : null
+		}
+	};
+
+	$scope.uploadData = "";
+	
+	$scope.fetchData = fetchData;
 
 	$scope.colorPalette = [ "#439FD8","#1377B3","#E63462","#E06962","#A25C92",
 							"#C16CAE","#379474","#50B391","#B3B7B2","#777971"];
 	
-	$scope.modules = {
+	$scope.modules = [
        
+	];
+
+	$scope.slideIn = {
+		content : "features"
 	};
 
 	$scope.featureModules = {
 		
 		SCHEDULES : {
+				ID : "SCHEDULES",
 				TITLE : "Schedules",
 				ORDER : "1",
-				ICON : "/assets/img/menu/schedules.png",
+				ICON : "schedules.png",
 				DESC : "Individual Sessions in your events",
-				ENABLED : true,
+				ENABLED : false,
 				HOME : false,
 				STATE : {
 					NAME : 'app.scehdules',
@@ -29,9 +46,10 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 				}
 			},
 		BREAKOUTS : {
+			ID: "BREAKOUTS",
 			TITLE : "Breakouts",
 			ORDER : "21",
-			ICON : "/assets/img/menu/breakouts.png",
+			ICON : "breakouts.png",
 			DESC : "Group sessions into different breakouts",
 			ENABLED : false,
 			HOME : false,
@@ -44,9 +62,10 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			}
 		},
 		EVENTS : {
+			ID : "EVENTS",
 			TITLE : "Events",
 			ORDER : "3",
-			ICON : "/assets/img/menu/events.png",
+			ICON : "events.png",
 			DESC : "Special events common to all participants",
 			ENABLED : false,
 			HOME : false,
@@ -59,12 +78,13 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			}
 		},
 		SPONSORS : {
+			ID : "SPONSORS",
 			TITLE : "Sponsors",
 			ORDER : "4",
-			ICON : "/assets/img/menu/sponsors.png",
-			DESC : "Information on sponsors who sponsor your conference",
-			ENABLED : true,
-			HOME : true,
+			ICON : "sponsors.png",
+			DESC : "Information on sponsors who sponsor conference",
+			ENABLED : false,
+			HOME : false,
 			SUB_STATE : true,
 			STATE : {
 				NAME : 'app.sponsors',
@@ -82,12 +102,13 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			}
 		},
 		SPEAKERS : {
+			ID : "SPEAKERS",
 			TITLE : "Speakers",
 			ORDER : "5",
-			ICON : "/assets/img/menu/speakers.png",
+			ICON : "speakers.png",
 			DESC : "List of Keynote speakers of the event",
-			ENABLED : true,
-			HOME : false,
+			ENABLED : false,
+			HOME : true,
 			STATE : {
 				NAME : 'app.speakers',
 				URL : "/speakers",
@@ -97,9 +118,10 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			}
 		},
 		FAQ : {
+			ID : "FAQ",
 			TITLE : "FAQs",
 			ORDER : "6",
-			ICON : "/assets/img/menu/faq.png",
+			ICON : "faq.png",
 			DESC : "Frequently asked questions about some general info",
 			ENABLED : false,
 			HOME : false,
@@ -112,10 +134,11 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			}
 		},
 		EXHIBITORS : {
+			ID : "EXHIBITORS",
 			TITLE : "Exhibitor",
 			ORDER : "7",
-			ICON : "/assets/img/menu/exhibitor.png",
-			DESC : "Firms who are exhibiting their products in your conference",
+			ICON : "exhibitor.png",
+			DESC : "Firms who are exhibiting their products in conference",
 			ENABLED : false,
 			HOME : false,
 			STATE : {
@@ -127,11 +150,12 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			}
 		},
 		FEEDBACK : {
+			ID : "FEEDBACK",
 			TITLE : "Feedback",
 			ORDER : "18",
-			ICON : "/assets/img/menu/feedback.png",
+			ICON : "feedback.png",
 			DESC : "Feedback form to be filled out by the participants",
-			ENABLED : true,
+			ENABLED : false,
 			HOME : false,
 			STATE : {
 				NAME : 'app.feedback',
@@ -142,11 +166,12 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			}
 		},
 		GALLERY : {
+			ID : "GALLERY",
 			TITLE : "Gallery",
 			ORDER : "9",
-			ICON : "/assets/img/menu/gallery.png",
+			ICON : "gallery.png",
 			DESC : "Gallery of pics from your previous events",
-			ENABLED : true,
+			ENABLED : false,
 			HOME : false,
 			STATE : {
 				NAME : 'app.gallery',
@@ -157,11 +182,12 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			}
 		},
 		CUSTOM_LIST : {
+			ID : "CUSTOM_LIST",
 			TITLE : "List",
 			ORDER : "10",
-			ICON : "/assets/img/menu/list.png",
+			ICON : "list.png",
 			DESC : "Any information that you could group as a list ",
-			ENABLED : true,
+			ENABLED : false,
 			HOME : false,
 			STATE : {
 				NAME : 'app.list',
@@ -172,9 +198,11 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			}
 		},
 		WEB_VIEW : {
+			
+			ID : "WEB_VIEW",
 			TITLE : "Web Site",
 			ORDER : "11",
-			ICON : "/assets/img/menu/www.png",
+			ICON : "www.png",
 			DESC : "Web view of your company or event site",
 			ENABLED : false,
 			HOME : false,
@@ -187,11 +215,12 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			}  
 		},
 		FB : {
+			ID : "FB",
 			TITLE : "FB Page",
 			ORDER : "12",
-			ICON : "/assets/img/menu/fb.png",
+			ICON : "fb.png",
 			DESC : "Integrate your FB page into the app",
-			ENABLED : true,
+			ENABLED : false,
 			HOME : false,
 			STATE : {
 				NAME : 'app.fb',
@@ -202,9 +231,10 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			}
 		},
 		YOUTUBE : { 
+			ID : "YOUTUBE",
 			TITLE : "YouTube Channel",
 			ORDER : "13",
-			ICON : "/assets/img/menu/youtube.png",
+			ICON : "youtube.png",
 			DESC : "Integrate your YouTube channel into the app",
 			ENABLED : false,
 			HOME : false,
@@ -217,9 +247,10 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			}
 		},
 		TWITTER : {
+			ID : "TWITTER",
 			TITLE : "Twitter Handle",
 			ORDER : "14",
-			ICON : "/assets/img/menu/twitter.png",
+			ICON : "twitter.png",
 			DESC : "Integrate your Twitter handle with the app",
 			ENABLED : false,
 			HOME : false,
@@ -232,11 +263,12 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			}
 		},
 		MAP : {
+			ID : "MAP",
 			TITLE : "Venue Map",
 			ORDER : "15",
-			ICON : "/assets/img/menu/maps.png",
+			ICON : "maps.png",
 			DESC : "A venue Map of the area where the event takes place",
-			ENABLED : true,
+			ENABLED : false,
 			HOME : false,
 			STATE : {
 				NAME : 'app.map',
@@ -247,9 +279,10 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 			}
 		},
 		EMERGENCY_CONTACT : {
+			ID : "EMERGENCY_CONTACT",
 			TITLE : "Emergency Contact",
 			ORDER : "16",
-			ICON : "/assets/img/menu/emergency.png",
+			ICON : "emergency.png",
 			DESC : "Emergency Mobile numbers and other contact info",
 			ENABLED : false,
 			HOME : false,
@@ -263,6 +296,12 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 		}
 	};
 
+
+	function init() {
+		console.log('App Builder Controller');
+		$scope.appInfo = JSON.parse(localStorage.getItem("appInfo"));
+	};
+
 	$scope.applyTheme = function(colorCode){
 		var sideMenuElements = angular.element( document.getElementsByClassName( 'side-menu-items' ) );
 		sideMenuElements.css("background",colorCode);
@@ -273,16 +312,20 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 		var featureModule = $scope.featureModules; 
 		var featureObject = featureModule[featureKey];
 
-		if(!$scope.modules.hasOwnProperty(featureKey)){
-			$scope.modules[featureKey]= featureObject;
+		if($scope.modules.indexOf(featureObject) == -1){
+			$scope.modules.push(featureObject);
 		}else{
 			console.log("duplicate");
 		}
+
+		modules = $scope.modules;
 				
 	};
 
 	$scope.removeFeatureFromSideMenu = function(featureKey){
-		delete $scope.modules[featureKey];				
+		var featureModule = $scope.featureModules; 
+		var featureObject = featureModule[featureKey];
+		$scope.modules.pop(featureObject);				
 	};
 
 	$scope.toggleButton = function(id){
@@ -310,8 +353,10 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 		
 	};
 
-	$scope.showFeatures = function(){
-		var featureElement = angular.element( document.querySelector( '.features' ) );
+	$scope.showSlideIn = function(slideInName){
+
+		$scope.slideIn.content = slideInName;
+		var featureElement = angular.element( document.querySelector( '.slide-in' ) );
 		featureElement.css("right",0);
 		featureElement.addClass('show');
 		var phoneShell = angular.element( document.querySelector( '.phone-shell' ) );
@@ -320,9 +365,9 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 		toggleContainer.css("right","400px");
 	};
 
-	$scope.hideFeatures = function(){
-		
-		var featureElement = angular.element( document.querySelector( '.features' ) );
+	$scope.hideSlideIn = function(){
+	
+		var featureElement = angular.element( document.querySelector( '.slide-in' ) );
 		featureElement.css("right","-400px");
 		featureElement.removeClass('show');
 		var phoneShell = angular.element( document.querySelector( '.phone-shell' ) );
@@ -331,8 +376,146 @@ function AppBuilderController($scope, $q, APP_MESSAGES, utils) {
 		toggleContainer.css("right",0);
 	};
 
-	function init() {
-		console.log('App Builder Controller');
+	function CSVToArray(strData, strDelimiter) {
+		// Check to see if the delimiter is defined. If not,
+		// then default to comma.
+		strDelimiter = (strDelimiter || ",");
+		// Create a regular expression to parse the CSV values.
+		var objPattern = new RegExp((
+		// Delimiters.
+		"(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
+		// Quoted fields.
+		"(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
+		// Standard fields.
+		"([^\"\\" + strDelimiter + "\\r\\n]*))"), "gi");
+		// Create an array to hold our data. Give the array
+		// a default empty first row.
+		var arrData = [[]];
+		// Create an array to hold our individual pattern
+		// matching groups.
+		var arrMatches = null;
+		// Keep looping over the regular expression matches
+		// until we can no longer find a match.
+		while (arrMatches = objPattern.exec(strData)) {
+			// Get the delimiter that was found.
+			var strMatchedDelimiter = arrMatches[1];
+			// Check to see if the given delimiter has a length
+			// (is not the start of string) and if it matches
+			// field delimiter. If id does not, then we know
+			// that this delimiter is a row delimiter.
+			if (strMatchedDelimiter.length && (strMatchedDelimiter != strDelimiter)) {
+				// Since we have reached a new row of data,
+				// add an empty row to our data array.
+				arrData.push([]);
+			}
+			// Now that we have our delimiter out of the way,
+			// let's check to see which kind of value we
+			// captured (quoted or unquoted).
+			if (arrMatches[2]) {
+				// We found a quoted value. When we capture
+				// this value, unescape any double quotes.
+				var strMatchedValue = arrMatches[2].replace(
+				new RegExp("\"\"", "g"), "\"");
+			} else {
+				// We found a non-quoted value.
+				var strMatchedValue = arrMatches[3];
+			}
+			// Now that we have our value string, let's add
+			// it to the data array.
+			arrData[arrData.length - 1].push(strMatchedValue);
+		}
+		// Return the parsed data.
+		return (arrData);
+	};
+
+	function CSV2JSON(csv) {
+		var array = CSVToArray(csv);
+		var objArray = [];
+		for (var i = 1; i < array.length; i++) {
+			objArray[i - 1] = {};
+			for (var k = 0; k < array[0].length && k < array[i].length; k++) {
+				var key = array[0][k];
+				objArray[i - 1][key] = array[i][k]
+			}
+		}
+
+		var json = JSON.stringify(objArray);
+		var str = json.replace(/},/g, "},\r\n");
+
+		return str;
+	};
+
+	function fetchData() {
+
+		$timeout(
+
+			function(){
+				console.log($scope.uploadFile.file.file);
+				var json = CSV2JSON($scope.uploadFile.file.file);
+				console.log(json);
+				$scope.uploadData = json;
+			},100);
+
+    };
+
+
+	$scope.uploadDataToBackend = function(uploadKey){
+	
+		var uploadData = {};
+		var primaryUploadData = {};
+		var docs = [];
+
+		var data = [];
+		var dataObject = JSON.parse($scope.uploadData);
+		data.push(dataObject);
+
+		primaryUploadData["_id"] = uploadKey+"_"+($scope.appInfo.name.replace(/\s/g,'')).toLowerCase();
+		primaryUploadData["documentType"] = uploadKey;
+		primaryUploadData["data"] = data;
+		docs.push(primaryUploadData);
+		uploadData["docs"] = docs;
+
+		console.log(uploadData);
+		
+		let deferred = $q.defer();
+       	utils.callBackend(APP.DB.RequestType.POST, APP.DB.MethodName.Create, uploadData, true)
+        .then((response) => {
+            deferred.resolve(response);
+			console.log(response);
+        }, (error) => {
+            var message = utils.handleError(error);
+            deferred.reject(message);
+        });
+
+        return deferred.promise;
+	
+	};
+
+	$scope.generatePreview = function(){
+
+		for(var i = 0 ; i < $scope.modules.length ; i++){
+			$scope.featureModules[$scope.modules[i].ID].ENABLED = true;
+			$scope.featureModules[$scope.modules[i].ID].ORDER = i;
+		}
+		var builderObject = {};
+		builderObject["APP_NAME"] = $scope.appInfo.name;
+		builderObject["APP_ICON"] = "icon.png";
+		builderObject["START_DATE"] = $scope.appInfo.fromDate;
+		builderObject["END_DATE"] = $scope.appInfo.toDate;
+		builderObject["DESC"] = $scope.appInfo.desc;
+		builderObject["PACKAGE_NAME"] = $scope.appInfo.packageName;
+		builderObject["LOCATION"] =$scope.appInfo.location;
+		builderObject["COMPONENTS"] =$scope.featureModules;
+		
+		console.log(builderObject);
+
+		$http.post('http://localhost:8080/buildApp', builderObject)
+		.then((response) => {
+			console.log(response);
+        }, (error) => {
+            console.log(error);
+        });
+
 	};
 
 	init();

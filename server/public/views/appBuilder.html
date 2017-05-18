@@ -12,37 +12,126 @@
     <div class="phone-shell" ng-mouseover="showFeatureOverlay()" ng-mouseleave="hideFeatureOverlay()">
         <div class="app-workarea">
             <div class="feature-overlay">
-                <div ng-click="showFeatures()">+</div>
+                <div ng-click="showSlideIn('features')">+</div>
             </div>
             <div class="modules">
                 <div class="side-menu">
-                    <div class="side-menu-items" ng-repeat="(key,module) in modules">
-                        <div class="remove-module" ng-click="removeFeatureFromSideMenu(key)" >x</div>
-                        <img src="{{module.ICON}}" style="height: 30px;margin-left: 10px;">
+                    <div class="side-menu-items" ng-repeat="module in modules" ng-click="showSlideIn(module.ID)" 
+                    drag-to-reorder="modules">
+                        <div class="remove-module" ng-click="removeFeatureFromSideMenu(module.ID)" >x</div>
+                        <img src="/assets/img/menu/{{module.ICON}}" style="height: 30px;margin-left: 10px;">
                          {{module.TITLE}}
                     </div>
                 </div>
 			</div>
         </div>
     </div>
-    <div class="slide-in features">
-        <div class="features-content">
+    <div class="slide-in">
+        <div class="features content"  ng-show="slideIn.content == 'features'" >
             <div class="text-strong">Features</div>
             <div class="text-weak">Add a new feature to your guide!</div>
-            <div class="close-features" ng-click="hideFeatures()" >X</div>
+            <div class="close-features" ng-click="hideSlideIn()" >X</div>
             <div class="features-wrapper">
                     <div class="features-items" ng-repeat="(key, features) in featureModules"> 
-                        <img src="{{features.ICON}}" class="feature-icon">
+                        <img src="/assets/img/menu/{{features.ICON}}" class="feature-icon">
                         <div class="feature-text">{{features.TITLE}}</div>
                         <div class="desc-text">{{features.DESC}}</div>
                         <div class="add-feature" ng-click="addFeatureToSideMenu(key)" >Add</div>
                     </div>
             </div>
         </div>
+        <div class="schedules content"  ng-show="slideIn.content == 'SCHEDULES'" >
+            <div class="module-header">
+                 <img src="{{featureModules.SCHEDULES.ICON}}" class="module-icon">
+                 <input type="text" class="module-name" ng-model="featureModules.SCHEDULES.TITLE">
+            </div>
+            <div class="close-features" ng-click="hideSlideIn()" >X</div>
+        </div>
+         <div class="sponsors content"  ng-show="slideIn.content == 'SPONSORS'" >
+            <div class="module-header">
+                 <img src="{{featureModules.SPONSORS.ICON}}" class="module-icon">
+                 <input type="text" class="module-name" ng-model="featureModules.SPONSORS.TITLE">
+            </div>
+            <div class="close-features" ng-click="hideSlideIn()" >X</div>
+        </div>
+         <div class="speakers content"  ng-show="slideIn.content == 'SPEAKERS'" >
+             <div class="module-header">
+                 <img src="{{featureModules.SPEAKERS.ICON}}" class="module-icon">
+                 <input type="text" class="module-name" ng-model="featureModules.SPEAKERS.TITLE">
+            </div>
+            <div class="close-features" ng-click="hideSlideIn()" >X</div>
+            <div class="buld-upload">
+                <input class="choose-file" type="file" file-reader="uploadFile.file.file" onchange="angular.element(this).scope().fetchData()" required/>
+                <div class="upload-button" ng-click="uploadDataToBackend('Speakers')">Bulk Import</div>
+            </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Name</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <input type="input" class="module_text">
+                </div>
+            </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Short Description</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <textarea class="module_text module_text_area" rows="4"></textarea>
+                </div>
+            </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Long Description</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <textarea class="module_text module_text_area" rows="6"></textarea>
+                </div>
+            </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Url</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <input type="input" class="module_text">
+                </div>
+            </div>
+             <div class="module_row">
+                <div class="add-button">Add Speakers</div>
+            </div>
+        </div>
+         <div class="gallery content"  ng-show="slideIn.content == 'GALLERY'" >
+            <div class="module-header">
+                 <img src="{{featureModules.GALLERY.ICON}}" class="module-icon">
+                 <input type="text" class="module-name" ng-model="featureModules.GALLERY.TITLE">
+            </div>
+            <div class="close-features" ng-click="hideSlideIn()" >X</div>
+        </div>
+        <div class="custom-list content"  ng-show="slideIn.content == 'CUSTOM_LIST'" >
+             <div class="module-header">
+                 <img src="{{featureModules.CUSTOM_LIST.ICON}}" class="module-icon">
+                 <input type="text" class="module-name" ng-model="featureModules.CUSTOM_LIST.TITLE">
+            </div>
+            <div class="close-features" ng-click="hideSlideIn()" >X</div>
+        </div>
+        <div class="fb content"  ng-show="slideIn.content == 'FB'" >
+             <div class="module-header">
+                 <img src="{{featureModules.FB.ICON}}" class="module-icon">
+                 <input type="text" class="module-name" ng-model="featureModules.FB.TITLE">
+            </div>
+            <div class="close-features" ng-click="hideSlideIn()" >X</div>
+        </div>
+        <div class="map content"  ng-show="slideIn.content == 'MAP'" >
+            <div class="module-header">
+                 <img src="{{featureModules.MAP.ICON}}" class="module-icon">
+                 <input type="text" class="module-name" ng-model="featureModules.MAP.TITLE">
+            </div>
+            <div class="close-features" ng-click="hideSlideIn()" >X</div>
+        </div>
     </div>
     <div class="generate-container">
         <div class="download-wrapper">
-            <span class="download-button" >Generate Preview</span>
+            <span class="download-button" ng-click="generatePreview()">Generate Preview</span>
             <span class="download-button" >Download APK</span>
             <span class="download-button" >Download Source</span>
         </div>

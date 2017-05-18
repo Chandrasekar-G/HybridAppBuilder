@@ -4,6 +4,8 @@ var APP = {
     MODULES : {
         MAIN : "main",
         CONTROLLERS : "controllers",
+        DIRECTIVES : "directives",
+        DRAGANDDROP : "angular-drag-to-reorder",
         UTILS : "utils",
         MESSAGES : "messages",
         ROUTES : "appRoutes"

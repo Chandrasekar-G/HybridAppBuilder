@@ -1,9 +1,17 @@
 controllers.controller(APP.CONTROLLERS.TemplateController, TemplateController);
 
-TemplateController.$inject = ['$scope', '$q', APP.MESSAGES, 'utils'];
+TemplateController.$inject = ['$scope','$rootScope', '$q', APP.MESSAGES, 'utils'];
 
-function TemplateController($scope, $q, APP_MESSAGES, utils) {
+function TemplateController($scope,$rootScope, $q, APP_MESSAGES, utils) {
 
+	$scope.appInfoObj = {
+		name : null,
+		desc : null,
+		packageName : null,
+		location : null,
+		fromDate : null,
+		toDate : null
+	};
     		/**********************************************************************************
 	* Navigate to different view
 	* @param newUrl
@@ -20,6 +28,7 @@ function TemplateController($scope, $q, APP_MESSAGES, utils) {
 	*/
 	$scope.loadAppBuilderPage = function(){
 		
+		localStorage.setItem("appInfo",JSON.stringify($scope.appInfoObj));
 		$scope.navigate('/appBuilder');	
 	};
 

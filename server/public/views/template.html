@@ -11,7 +11,7 @@
                <p class="frm_label"><span>Name</span></p>
             </div>
             <div class="frm_row_body " style="width: 70%;">
-                <input type="input" placeholder="Name of your app" class="frm_text" name="name">
+                <input type="input" placeholder="Name of your app" class="frm_text" ng-model="appInfoObj.name">
             </div>
        </div>
        <div class="frm_row ">
@@ -19,7 +19,7 @@
                <p class="frm_label"><span>Description</span></p>
             </div>
             <div class="frm_row_body " style="width: 70%;">
-                <textarea placeholder="Brief Description about your app" class="frm_text frm_txt_area" name="name" rows="5"></textarea>
+                <textarea placeholder="Brief Description about your app" class="frm_text frm_txt_area" ng-model="appInfoObj.desc" rows="5"></textarea>
             </div>
        </div>
        <div class="frm_row ">
@@ -27,7 +27,7 @@
                <p class="frm_label"><span>Package Name</span></p>
             </div>
             <div class="frm_row_body " style="width: 70%;">
-                <input type="input" placeholder="Package name to uniquely identify your app in the store" class="frm_text" name="name">
+                <input type="input" placeholder="Package name to uniquely identify your app in the store" class="frm_text" ng-model="appInfoObj.packageName">
             </div>
        </div>
         <div class="frm_row ">
@@ -35,7 +35,7 @@
                <p class="frm_label"><span>Location</span></p>
             </div>
             <div class="frm_row_body " style="width: 70%;">
-                <input type="input" placeholder="Location of your event" class="frm_text" name="name">
+                <input type="input" placeholder="Location of your event" class="frm_text" ng-model="appInfoObj.location">
             </div>
        </div>
        <div class="frm_row ">
@@ -43,8 +43,8 @@
                <p class="frm_label"><span>Duration</span></p>
             </div>
             <div class="frm_row_body " style="width: 70%;">
-                <input type="date" placeholder="Start Date" class="frm_text frm_date" name="name">
-                <input type="date" placeholder="End Date" class="frm_text frm_date" name="name">
+                <input type="date" placeholder="Start Date" class="frm_text frm_date" ng-model="appInfoObj.fromDate">
+                <input type="date" placeholder="End Date" class="frm_text frm_date" ng-model="appInfoObj.toDate">
             </div>
        </div>
         <div class="frm_row ">
