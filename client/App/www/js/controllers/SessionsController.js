@@ -22,11 +22,20 @@ function SessionsController($scope, $rootScope, $state, $ionicModal, utils, $q) 
         utils.callBackend(APP.DB.RequestType.GET, APP.DB.DocID.Sessions  + BUILDER.APP_NAME.replace(/ /g,'').toLowerCase(), requestData, true)
         .then((response) => {
             deferred.resolve(response);
-            $scope.SessionGroup = response[0].groups;
-            $scope.Presenters = response[0].presenters;
-            console.log($scope.SessionGroup);
-            utils.localStorage.setObject("sessionGroup", $scope.SessionGroup);
-            utils.localStorage.setObject("presenters", $scope.Presenters);
+            
+            var sessionGroups = [];
+            var time = "";
+            for(index in response) {
+                var localTime = response[index].time;
+                if(localTime == time) {
+                    response[index].time = null;
+                } else {
+                    time = response[index].time;
+                }
+            }
+            console.log(response);
+            $scope.Sessions = response;
+            utils.localStorage.setObject("sessions", $scope.Sessions);
             utils.hideSpinner();
         }, (error) => {
             var message = utils.handleError(error);
@@ -48,25 +57,11 @@ function SessionDetailsController($scope, $rootScope, $state, $stateParams, $ion
      $scope.currentSession = null;
     
      function init() {
-        $scope.SessionGroup = utils.localStorage.getObject("sessionGroup"); 
-        $scope.Presenters = utils.localStorage.getObject("presenters");  
-        for(var groupIndex in $scope.SessionGroup) {
-            for(var sessionIndex in $scope.SessionGroup[groupIndex].sessions) {
-                $scope.Sessions.push($scope.SessionGroup[groupIndex].sessions[sessionIndex]);
-            }
-        }
+        $scope.Sessions = utils.localStorage.getObject("sessions"); 
         $scope.currentSession = $scope.Sessions.filter(function(obj) {
             return obj.id == $stateParams.sessionId;
         });
-
-        $scope.currentSession[0].presenterDetails = [];
-        for(presenterIndex in $scope.currentSession[0].presenters) {
-            $scope.currentSession[0].presenterDetails.push(
-                $scope.Presenters.filter(function(obj){
-                    return obj.id == $scope.currentSession[0].presenters[presenterIndex];
-                })[0]
-            );
-        }
+       
         $scope.currentSession = $scope.currentSession[0];
         console.log($scope.currentSession);
     };

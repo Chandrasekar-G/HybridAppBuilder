@@ -1,7 +1,7 @@
 <ion-view view-title="Session Detail">
     <ion-content class="sessionDetailsContainer">
         <div class="wall">
-           <img src="img/sessions/{{currentSession.tracks[0]}}.png">
+           <img src="img/sessions/{{currentSession.tracks}}.png">
         </div>
         <div class="content">
             <div class="title">{{currentSession.name}}</div>
@@ -17,12 +17,18 @@
             </div>
             <div class="presenters">
                 <div class="heading"><i class="ion-mic-c"></i>Presenters</div>
-                <div class="value" ng-repeat="presenter in currentSession.presenterDetails">
+                <span class="value">
                     <span class="pic">
-                        <img src="img/sessions/{{presenter.pic}}" />
+                        <img src="img/sessions/{{currentSession.pPic1}}" />
                     </span>
-                    <span class="name"> {{presenter.name}} </span>
-                </div>
+                    <span class="name"> {{currentSession.pName1}} </span>
+                </span>
+                <span class="value">
+                    <span class="pic">
+                        <img src="img/sessions/{{currentSession.pPic2}}" />
+                    </span>
+                    <span class="name"> {{currentSession.pName2}} </span>
+                </span>
             </div>
             <div class="desc"> {{currentSession.description}}</div>
         </div>
