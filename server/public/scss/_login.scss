@@ -1,4 +1,6 @@
-
+*{
+    font-family: "Whitney SSm A", "Whitney SSm B", "WhitnBoo", "ProximaNova-Regular", sans-serif;
+}
 body, html {
     height: 100%;
     background-repeat: no-repeat;
@@ -8,6 +10,7 @@ body, html {
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b9d2e0', endColorstr='#9ebfd0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
 }
+
 .app-header{
     background: #439fd8;
     height: 150px;

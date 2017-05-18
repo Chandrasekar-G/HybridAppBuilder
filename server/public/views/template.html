@@ -11,7 +11,7 @@
                <p class="frm_label"><span>Name</span></p>
             </div>
             <div class="frm_row_body " style="width: 70%;">
-                <input type="input" placeholder="Name your guide" class="frm_text" name="name">
+                <input type="input" placeholder="Name of your app" class="frm_text" name="name">
             </div>
        </div>
        <div class="frm_row ">
@@ -19,7 +19,7 @@
                <p class="frm_label"><span>Description</span></p>
             </div>
             <div class="frm_row_body " style="width: 70%;">
-                <input type="input" placeholder="Name your guide" class="frm_text" name="name">
+                <textarea placeholder="Brief Description about your app" class="frm_text frm_txt_area" name="name" rows="5"></textarea>
             </div>
        </div>
        <div class="frm_row ">
@@ -27,7 +27,7 @@
                <p class="frm_label"><span>Package Name</span></p>
             </div>
             <div class="frm_row_body " style="width: 70%;">
-                <input type="input" placeholder="Name your guide" class="frm_text" name="name">
+                <input type="input" placeholder="Package name to uniquely identify your app in the store" class="frm_text" name="name">
             </div>
        </div>
         <div class="frm_row ">
@@ -35,7 +35,7 @@
                <p class="frm_label"><span>Location</span></p>
             </div>
             <div class="frm_row_body " style="width: 70%;">
-                <input type="input" placeholder="Name your guide" class="frm_text" name="name">
+                <input type="input" placeholder="Location of your event" class="frm_text" name="name">
             </div>
        </div>
        <div class="frm_row ">
@@ -50,17 +50,20 @@
         <div class="frm_row ">
            <div class="cover-container">
                 <div class="cover-picture">
-
+                    <span class="file-upload"><i class="fa fa-edit"></i></span>
                 </div>
+                <div class="profile-picture">
+                    <span class="file-upload"><i class="fa fa-edit"></i></span>
+                </div>
+
            </div>
        </div>
+       <button class="btn btn-primary save" type="submit" ng-click="loadAppBuilderPage()">Save and Continue</button>
     </div>
     <div class="detail-box">
         <h1 class="detail-header">Building with Dream Builder</h1>
         <p>You’re on your way to creating an extremely useful, wonderfully eco-friendly, and pleasantly elegant mobile guide. With Guidebook, it’s extremely simple to put information right in your audience’s hands, and it all starts here with our guide builder.</p>
         <p>With a few short steps, you’ll have a complete guide that can be published and ready to use. Don’t worry - we’ll walk you through the process! Start here by telling us a few details about your guide.</p>
     </div>
-    <div class="save-box">
-        <div class="ftr_button" ng-click="loadAppBuilderPage()">Save and Continue</div>
-    </div>
+
 </div>

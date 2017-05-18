@@ -1,20 +1,31 @@
 .template-wrapper{
     background: white;
-    text-align: center
 }
 
-.information-box{
-    float: left;
-    left: 50px;
-    top: 40px;
-    width: 50%;
-    height: 600px;
-    border: 1px solid #ddd;
-    display: inline-block;
-    margin: 10px;
-    margin-bottom:0;
+.file-upload{
+    font-size: 20px;
+    color: dodgerblue;
+    border: 1px solid dodgerblue;
+    padding: 5px;
     position: relative;
+    top: 10px;
+    left: 10px;
+    background-color: white;
+    border-radius: 5px;
+}
 
+
+.information-box{
+    border-radius: 5px;
+    display: inline-block;
+    width: 50%;
+    height: 700px;
+    border: 1px solid #ddd;
+    height: auto;
+    float: left;
+    margin-left: 12%;
+    margin-top: 4%;
+    
     .frm_row{
         display: flex;
 
@@ -50,32 +61,84 @@
                 width: 90% !important;
                 max-width: 100% !important;
             }
-
+            .frm_txt_area{
+                height: auto !important;
+            }
             .frm_date{
                 width: 45% !important;
+            }
+        }
+
+        .cover-container{
+            width: 80%;
+            margin: 0 auto;
+            .cover-picture{
+                background-image: url(https://s3.amazonaws.com/media.guidebook.com/upload/gears/guidetemplate/cover/conference.png);
+                padding-bottom: 30%;
+                background-position: center center;
+                background-size: 700px 100px;
+                margin: 6px;
+                margin-left:20px; 
+            }
+            .profile-picture{
+                background-image: url(https://s3.amazonaws.com/media.guidebook.com/upload/sX34UzP3ve5vp7fqE5DAQLMIHLJdCfAtNhxwOqog/PRTCF2HqvMyikMrwI7FMu2boomcpiAdBpVf7.png);
+                background-color: white;
+                height: 100px;
+                width: 100px;
+                position: relative;
+                top: -80px;
+                left: 40%;
+                border-radius: 5px;
+                border: 1px solid grey;
+                position: relative;
             }
         }
     }
 }
 
+.save{
+    float: right;
+    margin-right: 50px;
+    font-weight: 400;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.detail-box{
+    width: 28%;
+    height: 700px;
+    float: left;
+    margin-top: 4%;
+    padding: 30px;
+    padding-top: 0;
+    color: #757575;
+
+    .detail-header{
+        font-size: 22px;
+        letter-spacing: 2px;
+        color: black;
+        margin-top: 0;
+    }
+}
+
+
 .save-box{
-    width: 70%;
+    width: 50%;
     height: 100px;
     border: 1px solid #ddd;
-    display: inline-block;
-    position: relative;
-
+    float: left;
+    margin-left: 12%;
     .ftr_button{
         background: linear-gradient(to bottom, #58aadc, #2e94d4);
         border-color: #2F77A3;
         color: #fff;
         position: relative;
-        height: 40px;
         line-height: 40px;
         padding: 0 16px;
         cursor: pointer;
-        outline: none;
         top: 30px;
-        left: 30%;
+        left: 70%;
+        width:152px;
+        border-radius: 5px;
     }
 }

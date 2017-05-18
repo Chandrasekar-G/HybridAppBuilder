@@ -7,7 +7,9 @@
     "body-parser" : "~1.4.2",
     "method-override" : "~2.0.2",
     "node-cmd" : "~3.0.0",
-    "zip-folder" : "~1.0.0"
+    "zip-folder" : "~1.0.0",
+    "multer": "1.2.0",
+    "ncp" : "2.0.0"
   }
 }
 
