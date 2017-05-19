@@ -1,8 +1,8 @@
 controllers.controller(APP.CONTROLLERS.AppBuilderController, AppBuilderController);
 
-AppBuilderController.$inject = ['toaster','$scope', '$rootScope', '$q', APP.MESSAGES, 'utils','$timeout'];
+AppBuilderController.$inject = ['toaster','$scope', '$q', APP.MESSAGES, 'utils','$timeout'];
 
-function AppBuilderController(toaster, $scope, $rootScope, $q, APP_MESSAGES, utils, $timeout) {
+function AppBuilderController(toaster, $scope, $q, APP_MESSAGES, utils, $timeout) {
 
 	$scope.appInfo = {};
 
@@ -331,10 +331,12 @@ function AppBuilderController(toaster, $scope, $rootScope, $q, APP_MESSAGES, uti
 		toaster.pop('success', "Feature added");	
 	};
 
-	$scope.removeFeatureFromSideMenu = function(featureKey){
+	$scope.removeFeatureFromSideMenu = function(featureKey,$event){
+
+		console.log(featureKey);
 		var featureModule = $scope.featureModules; 
 		var featureObject = featureModule[featureKey];
-		$scope.modules.pop(featureObject);	
+		$scope.modules.splice($scope.modules.indexOf(featureObject),1);
 		toaster.pop('success', "Feature removed");
 	};
 
@@ -365,6 +367,13 @@ function AppBuilderController(toaster, $scope, $rootScope, $q, APP_MESSAGES, uti
 
 	$scope.showSlideIn = function(slideInName){
 
+		console.log(slideInName);
+
+		var allContent = angular.element( document.getElementsByClassName( 'content' ) );
+		allContent.css("display","none");
+		var selectedContent = angular.element( document.querySelector( '.'+slideInName ) );
+		selectedContent.css("display","block");
+
 		$scope.slideIn.content = slideInName;
 		var featureElement = angular.element( document.querySelector( '.slide-in' ) );
 		featureElement.css("right",0);
@@ -376,7 +385,8 @@ function AppBuilderController(toaster, $scope, $rootScope, $q, APP_MESSAGES, uti
 	};
 
 	$scope.hideSlideIn = function(){
-	
+
+		console.log("hide slide");		
 		var featureElement = angular.element( document.querySelector( '.slide-in' ) );
 		featureElement.css("right","-400px");
 		featureElement.removeClass('show');

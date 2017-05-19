@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="slide-in">
-        <div class="features content"  ng-show="slideIn.content == 'features'" >
+        <div class="features content"  >
             <div class="text-strong">Features</div>
             <div class="text-weak">Add a new feature to your guide!</div>
             <div class="close-features" ng-click="hideSlideIn()" >X</div>
@@ -40,7 +40,7 @@
                     </div>
             </div>
         </div>
-        <div class="schedules content"  ng-show="slideIn.content == 'SCHEDULES'" >
+        <div class="SCHEDULES content"  style="display:none;" >
             <div class="module-header">
                  <img src="/assets/img/menu/{{featureModules.SCHEDULES.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.SCHEDULES.TITLE">
@@ -94,7 +94,7 @@
                 </div>
             </div>
         </div>
-        <div class="sponsors content"  ng-show="slideIn.content == 'SPONSORS'" >
+        <div class="SPONSORS content"  style="display:none;"  >
             <div class="module-header">
                  <img src="/assets/img/menu/{{featureModules.SPONSORS.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.SPONSORS.TITLE">
@@ -148,7 +148,7 @@
                 </div>
             </div>
         </div>
-        <div class="speakers content"  ng-show="slideIn.content == 'SPEAKERS'" >
+        <div class="SPEAKERS content"  style="display:none;" >
             <div class="module-header">
                  <img src="/assets/img/menu/{{featureModules.SPEAKERS.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.SPEAKERS.TITLE">
@@ -197,7 +197,7 @@
                 <div class="add-button">Add Speakers</div>
             </div>
         </div>
-        <div class="gallery content"  ng-show="slideIn.content == 'GALLERY'" >
+        <div class="GALLERY content"  style="display:none;" >
             <div class="module-header">
                  <img src="/assets/img/menu/{{featureModules.GALLERY.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.GALLERY.TITLE">
@@ -225,9 +225,9 @@
                 <div class="module_row_body " style="width: 50%;">
                     <input type="input" class="module_text">
                 </div>
-            </div>
+            </div> 
         </div>
-        <div class="custom-list content"  ng-show="slideIn.content == 'CUSTOM_LIST'" >
+        <div class="CUSTOM_LIST content"   style="display:none;" >
             <div class="module-header">
                  <img src="/assets/img/menu/{{featureModules.CUSTOM_LIST.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.CUSTOM_LIST.TITLE">
@@ -265,7 +265,7 @@
                 </div>
             </div>
         </div>
-        <div class="fb content"  ng-show="slideIn.content == 'FB'" >
+        <div class="FB content"  style="display:none;" >
             <div class="module-header">
                  <img src="/assets/img/menu/{{featureModules.FB.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.FB.TITLE">
@@ -283,7 +283,7 @@
                 </div>
             </div>
         </div>
-        <div class="map content"  ng-show="slideIn.content == 'MAP'" >
+        <div class="MAP content"  style="display:none;" >
             <div class="module-header">
                  <img src="/assets/img/menu/{{featureModules.MAP.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.MAP.TITLE">
