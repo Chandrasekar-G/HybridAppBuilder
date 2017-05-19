@@ -12,11 +12,11 @@
             </div>
             <div class="location">
                 <i class="ion-location"></i>
-                <div class="name">Location</div>
-                <div class="value">{{currentSession.location}}</div>
+                <div class="name loc">Location</div>
+                <div class="value">{{currentSession.location}}</div> 
             </div>
-            <div class="presenters">
-                <div class="heading"><i class="ion-mic-c"></i>Presenters</div>
+            <div class="presenters" ng-if="currentSession.pName1">
+                <div class="heading"><i class="ion-mic-c"></i><span class="pre">Presenters</span></div>
                 <span class="value">
                     <span class="pic">
                         <img src="img/sessions/{{currentSession.pPic1}}" />

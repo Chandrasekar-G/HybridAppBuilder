@@ -47,7 +47,7 @@
             </div>
             <label class="is-home">
                 <input type="checkbox" ng-model="featureModules.SCHEDULES.HOME" ng-change="handleIsHome('SCHEDULES')">
-                 : isHome</label>
+                 Set as Home</label>
             <div class="close-features" ng-click="hideSlideIn()" >X</div>
             <div class="buld-upload">
                 <input class="choose-file" type="file" file-reader="uploadFile.file.file" onchange="angular.element(this).scope().fetchData()" required/>
@@ -101,7 +101,7 @@
             </div>
             <label class="is-home">
                 <input type="checkbox" ng-model="featureModules.SPONSORS.HOME" ng-change="handleIsHome('SPONSORS')">
-                 : isHome</label>
+                 Set as Home</label>
             <div class="close-features" ng-click="hideSlideIn()" >X</div>
             <div class="buld-upload">
                 <input class="choose-file" type="file" file-reader="uploadFile.file.file" onchange="angular.element(this).scope().fetchData()" required/>
@@ -155,7 +155,7 @@
             </div>
             <label class="is-home">
                 <input type="checkbox" ng-model="featureModules.SPEAKERS.HOME" ng-change="handleIsHome('SPEAKERS')">
-                 : isHome</label>
+                 Set as Home</label>
             <div class="close-features" ng-click="hideSlideIn()" >X</div>
             <div class="buld-upload">
                 <input class="choose-file" type="file" file-reader="uploadFile.file.file" onchange="angular.element(this).scope().fetchData()" required/>
@@ -204,7 +204,7 @@
             </div>
             <label class="is-home">
                 <input type="checkbox" ng-model="featureModules.GALLERY.HOME" ng-change="handleIsHome('GALLERY')">
-                 : isHome</label>
+                 Set as Home</label>
             <div class="close-features" ng-click="hideSlideIn()" >X</div>
             <div class="buld-upload">
                 <input class="choose-file" type="file" file-reader="uploadFile.file.file" onchange="angular.element(this).scope().fetchData()" required/>
@@ -234,7 +234,7 @@
             </div>
             <label class="is-home">
                 <input type="checkbox" ng-model="featureModules.CUSTOM_LIST.HOME" ng-change="handleIsHome('CUSTOM_LIST')">
-                 : isHome</label>
+                 Set as Home</label>
             <div class="close-features" ng-click="hideSlideIn()" >X</div>
             <div class="buld-upload">
                 <input class="choose-file" type="file" file-reader="uploadFile.file.file" onchange="angular.element(this).scope().fetchData()" required/>
@@ -272,7 +272,7 @@
             </div>
             <label class="is-home">
                 <input type="checkbox" ng-model="featureModules.FB.HOME" ng-change="handleIsHome('FB')">
-                 : isHome</label>
+                 Set as Home</label>
             <div class="close-features" ng-click="hideSlideIn()" >X</div>
             <div class="module_row">
                 <div class="module_row_description " style="width: 30%;">
@@ -290,15 +290,16 @@
             </div>
             <label class="is-home">
                 <input type="checkbox" ng-model="featureModules.MAP.HOME" ng-change="handleIsHome('MAP')">
-                 : isHome</label>
+                 Set as Home</label>
             <div class="close-features" ng-click="hideSlideIn()" >X</div>
         </div>
     </div>
     <div class="generate-container">
         <div class="download-wrapper">
-            <span class="download-button" ng-click="generatePreview()">Generate Preview</span>
-            <span class="download-button" >Download APK</span>
-            <span class="download-button" >Download Source</span>
+            <span class="download-button" ng-click="generatePreview()">Generate Web Preview</span>
+            <span class="download-button" ng-click="previewInDevice()">Preview in Device</span>
+            <span class="download-button"> <a href="http://localhost:8080/downloadapk" target="_blank">Download APK</a></span>
+            <span class="download-button"> <a href="http://localhost:8080/downloadCode" target="_blank">Download Source</a></span>
         </div>
     </div>
 </div>

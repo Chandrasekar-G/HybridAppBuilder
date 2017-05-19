@@ -30,20 +30,26 @@ function AppBuilderController(toaster, $scope, $rootScope, $q, APP_MESSAGES, uti
 	};
 
 	$scope.featureModules = {
-		
 		SCHEDULES : {
 				ID : "SCHEDULES",
-				TITLE : "Schedules",
+				TITLE : "Sessions",
 				ORDER : "1",
 				ICON : "schedules.png",
 				DESC : "Individual Sessions in your events",
 				ENABLED : false,
 				HOME : false,
 				STATE : {
-					NAME : 'app.scehdules',
-					URL : "/schedules",
-					TEMPLATEURL : "templates/schedules.html",
-					CONTROLLER : "SchedulesController",
+					NAME : 'app.sessions',
+					URL : "/sessions",
+					TEMPLATEURL : "templates/sessions.html",
+					CONTROLLER : "SessionsController",
+					CACHE : false
+				},
+            	SUB_STATE : {
+					NAME : 'app.sessionDetails',
+					URL : "/sessions/:sessionId",
+					TEMPLATEURL : "templates/sessionDetails.html",
+					CONTROLLER : "SessionDetailsController",
 					CACHE : false
 				}
 			},
@@ -527,6 +533,36 @@ function AppBuilderController(toaster, $scope, $rootScope, $q, APP_MESSAGES, uti
 
 	
 	};
+
+	$scope.previewInDevice = function() {
+		utils.showSpinner();
+		for(var i = 0 ; i < $scope.modules.length ; i++){
+			$scope.featureModules[$scope.modules[i].ID].ENABLED = true;
+			$scope.featureModules[$scope.modules[i].ID].ORDER = i;
+		}
+		var builderObject = {};
+		builderObject["APP_NAME"] = $scope.appInfo.name;
+		builderObject["APP_ICON"] = "icon.png";
+		builderObject["START_DATE"] = $scope.appInfo.fromDate;
+		builderObject["END_DATE"] = $scope.appInfo.toDate;
+		builderObject["DESC"] = $scope.appInfo.desc;
+		builderObject["PACKAGE_NAME"] = $scope.appInfo.packageName;
+		builderObject["LOCATION"] =$scope.appInfo.location;
+		builderObject["COMPONENTS"] =$scope.featureModules;
+		
+		console.log(builderObject);
+
+		$http.post('http://localhost:8080/previewInDevice', builderObject)
+		.then((response) => {
+			console.log(response);
+        }, (error) => {
+            console.log(error);
+        });
+		//utils.hideSpinner();
+		
+	};
+
+	
 
 	$scope.generatePreview = function(){
 
