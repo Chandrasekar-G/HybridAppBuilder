@@ -226,6 +226,12 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center; }
+  .spinner-overlay p {
+    font-size: 25px;
+    z-index: 14;
+    position: absolute;
+    top: 28%;
+    color: #fff; }
   .spinner-overlay .spinner {
     width: 100px;
     height: 100px;
