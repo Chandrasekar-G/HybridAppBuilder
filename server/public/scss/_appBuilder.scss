@@ -57,11 +57,19 @@
         }
         .upload-button{
             display: inline-block;
+            //background: #439fd8;
+            //color: #FFF;
+            //padding: 10px 20px 10px 20px;
+            //border-radius: 5px;
+            //cursor: pointer;
+
+            border: 1px solid #439fd8;
+            padding: 8px 25px 8px 25px;
+            //margin-left: 13%;
+            border-radius: 3px;
+            cursor: pointer;
             background: #439fd8;
             color: #FFF;
-            padding: 10px 20px 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
         }
     }
 

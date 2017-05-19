@@ -365,11 +365,12 @@ hr {
       width: 180px; }
     .slide-in .buld-upload .upload-button {
       display: inline-block;
+      border: 1px solid #439fd8;
+      padding: 8px 25px 8px 25px;
+      border-radius: 3px;
+      cursor: pointer;
       background: #439fd8;
-      color: #FFF;
-      padding: 10px 20px 10px 20px;
-      border-radius: 5px;
-      cursor: pointer; }
+      color: #FFF; }
   .slide-in .module_row {
     display: flex; }
     .slide-in .module_row .module_row_description {

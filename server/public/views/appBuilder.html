@@ -53,8 +53,48 @@
                 <input class="choose-file" type="file" file-reader="uploadFile.file.file" onchange="angular.element(this).scope().fetchData()" required/>
                 <div class="upload-button" ng-click="uploadDataToBackend('Sessions')">Bulk Import</div>
             </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Name</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <input type="input" class="module_text">
+                </div>
+            </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Location</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <input type="input" class="module_text">
+                </div>
+            </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Description</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <textarea class="module_text module_text_area" rows="6"></textarea>
+                </div>
+            </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Presenter Name</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <input type="input" class="module_text">
+                </div>
+            </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Presenter Image</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <input type="file" class="module_text">
+                </div>
+            </div>
         </div>
-         <div class="sponsors content"  ng-show="slideIn.content == 'SPONSORS'" >
+        <div class="sponsors content"  ng-show="slideIn.content == 'SPONSORS'" >
             <div class="module-header">
                  <img src="/assets/img/menu/{{featureModules.SPONSORS.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.SPONSORS.TITLE">
@@ -67,9 +107,49 @@
                 <input class="choose-file" type="file" file-reader="uploadFile.file.file" onchange="angular.element(this).scope().fetchData()" required/>
                 <div class="upload-button" ng-click="uploadDataToBackend('Sponsors')">Bulk Import</div>
             </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Name</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <input type="input" class="module_text">
+                </div>
+            </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Logo</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <input type="file" class="module_text">
+                </div>
+            </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Header</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <input type="text" class="module_text">
+                </div>
+            </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Description</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <textarea class="module_text module_text_area" rows="6"></textarea>
+                </div>
+            </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Url</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <input type="input" class="module_text">
+                </div>
+            </div>
         </div>
-         <div class="speakers content"  ng-show="slideIn.content == 'SPEAKERS'" >
-             <div class="module-header">
+        <div class="speakers content"  ng-show="slideIn.content == 'SPEAKERS'" >
+            <div class="module-header">
                  <img src="/assets/img/menu/{{featureModules.SPEAKERS.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.SPEAKERS.TITLE">
             </div>
@@ -117,7 +197,7 @@
                 <div class="add-button">Add Speakers</div>
             </div>
         </div>
-         <div class="gallery content"  ng-show="slideIn.content == 'GALLERY'" >
+        <div class="gallery content"  ng-show="slideIn.content == 'GALLERY'" >
             <div class="module-header">
                  <img src="/assets/img/menu/{{featureModules.GALLERY.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.GALLERY.TITLE">
@@ -130,9 +210,25 @@
                 <input class="choose-file" type="file" file-reader="uploadFile.file.file" onchange="angular.element(this).scope().fetchData()" required/>
                 <div class="upload-button" ng-click="uploadDataToBackend('Gallery')">Bulk Import</div>
             </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Source</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <input type="file" class="module_text">
+                </div>
+            </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Subject</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <input type="input" class="module_text">
+                </div>
+            </div>
         </div>
         <div class="custom-list content"  ng-show="slideIn.content == 'CUSTOM_LIST'" >
-             <div class="module-header">
+            <div class="module-header">
                  <img src="/assets/img/menu/{{featureModules.CUSTOM_LIST.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.CUSTOM_LIST.TITLE">
             </div>
@@ -144,9 +240,33 @@
                 <input class="choose-file" type="file" file-reader="uploadFile.file.file" onchange="angular.element(this).scope().fetchData()" required/>
                 <div class="upload-button" ng-click="uploadDataToBackend('List')">Bulk Import</div>
             </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Title</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <input type="input" class="module_text">
+                </div>
+            </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Heading</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <input type="input" class="module_text">
+                </div>
+            </div>
+            <div class="module_row">
+                <div class="module_row_description " style="width: 30%;">
+                    <p class="module_label"><span>Description</span></p>
+                </div>
+                <div class="module_row_body " style="width: 50%;">
+                    <textarea class="module_text module_text_area" rows="6"></textarea>
+                </div>
+            </div>
         </div>
         <div class="fb content"  ng-show="slideIn.content == 'FB'" >
-             <div class="module-header">
+            <div class="module-header">
                  <img src="/assets/img/menu/{{featureModules.FB.ICON}}" class="module-icon">
                  <input type="text" class="module-name" ng-model="featureModules.FB.TITLE">
             </div>
