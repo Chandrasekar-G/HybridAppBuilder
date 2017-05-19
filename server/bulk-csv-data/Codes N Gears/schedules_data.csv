@@ -1,0 +1,24 @@
+id,name,location,description,pName1,pPic1,pName2,pPic2,timeStart,timeEnd,tracks,color,time
+1,Big Data and Analytics,QA Bay,These folks have come up an interesting idea that involves hacking Big Data and Analytics and I'm so looking forward to see what they're going to build.,Max,max.png,Sophie,sophie.png,8:00 AM,9:00 AM,Food,#DD7373,8:00 AM
+2,Commerce,QA Bay,These guys are planning to hack something in our commerce and I have a feeling it's going to catch on.,Max,max.png,Sophie,sophie.png,8:00 AM,9:00 AM,Food,#DD7373,8:00 AM
+3,Augmented Reality ,QA Bay,"Turns out they're going to use Augmented Reality to track virtual objects within our Sirius facility. This sounds fancy to me. You guys are awesome, all the best!",Max,max.png,Sophie,sophie.png,9:15 AM,9:30 AM,Ionic,#58A4B0,9:15 AM
+4,Behavior Driven Testing framework,QA Bay,These guys are planning to hack a Behavior Driven Testing framework to improve script automation with an innovative technique. This can potentially spin out on many directions and I wish the team my best.,Max,max.png,Sophie,sophie.png,9:30 AM,9:45 AM,Ionic,#58A4B0,9:15 AM
+5,Hybrid mobile app builder,QA Bay,"These guys are planning to hack a production grade next-gen hybrid mobile app builder. I know, it sounds like one of the cool gadgets from the Bond movies",Max,max.png,Sophie,sophie.png,9:45 AM,10:00 AM,Tooling,#401F3E,9:15 AM
+6,Automation scripts,QA Bay,These folks are gonna hack the automation scripts by voice controlled inputs. They're basically building a voice engine for automation and it sounds so cool.,Max,max.png,Sophie,sophie.png,10:00 AM,10:15 AM,Ionic,#58A4B0,10:00 AM
+7,Augmented Reality ,QA Bay,These folks have come up an interesting idea that involves hacking Big Data and Analytics and I'm so looking forward to see what they're going to build.,Max,max.png,Sophie,sophie.png,10:15 AM,10:30 AM,Angular,#0C7C59,10:00 AM
+8,Behavior Driven Testing framework,QA Bay,These guys are planning to hack something in our commerce and I have a feeling it's going to catch on.,Max,max.png,Sophie,sophie.png,10:30 AM,10:45 AM,Design,#7C99B4,10:00 AM
+9,Hybrid mobile app builder,QA Bay,"Turns out they're going to use Augmented Reality to track virtual objects within our Sirius facility. This sounds fancy to me. You guys are awesome, all the best!",Max,max.png,Sophie,sophie.png,10:45 AM,11:00 AM,Services,#39A0ED,10:00 AM
+10,Automation scripts,QA Bay,These guys are planning to hack a Behavior Driven Testing framework to improve script automation with an innovative technique. This can potentially spin out on many directions and I wish the team my best.,Max,max.png,Sophie,sophie.png,11:00 AM,11:45 AM,Workshop,#C1ABA6,11:00 AM
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
