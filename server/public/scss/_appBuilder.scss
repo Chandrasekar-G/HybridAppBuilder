@@ -363,11 +363,15 @@
         .download-button{
              border: 1px solid #439fd8;
             padding: 8px 25px 8px 25px;
-            margin-left: 13%;
+            margin-left: 5%;
             border-radius: 3px;
             cursor: pointer;
             background: #439fd8;
             color: #FFF;
+            a{
+                color:white;
+                text-decoration: none;
+            }
         }
     }
 }

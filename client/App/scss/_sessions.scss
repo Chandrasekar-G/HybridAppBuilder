@@ -53,6 +53,7 @@
             width: 100%;
             position: relative;
             margin: 5px 0;
+            height: 30px !important;
             i{
                 font-size: 22px;
                 color: #2B7489;
@@ -61,20 +62,29 @@
             .name{
                 width: 35%;
                 font-weight: bolder;
+                vertical-align: initial !important;
+            }
+            .name.loc{
+                margin-left: 10px;
             }
             .value{
                 width: 45%;
                 text-transform: uppercase;
+                vertical-align: initial !important;
             }
         }
         .presenters{    
             margin-bottom: 10px;
             .heading{
+                margin-bottom: 15px;
                 font-weight: bolder;
                 i{
                     font-size: 22px;
                     color: #2B7489;
                     margin-right: 15px;
+                }
+                .pre{
+                    margin-left: 10px;
                 }
             }
             .value{

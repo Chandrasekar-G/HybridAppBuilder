@@ -1,8 +1,8 @@
 var BUILDER = {
     APP_NAME : "Kickoff",
     APP_ICON : "icon.png",
-    START_DATE :"",
-    END_DATE : "",
+    START_DATE :"19/05/2017",
+    END_DATE : "21/05/2017",
     DESC : "",
     PACKAGE_NAME : "",
     LOCATION : "",
