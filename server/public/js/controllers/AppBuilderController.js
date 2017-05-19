@@ -1,8 +1,8 @@
 controllers.controller(APP.CONTROLLERS.AppBuilderController, AppBuilderController);
 
-AppBuilderController.$inject = ['$scope','$rootScope', '$q', APP.MESSAGES, 'utils','$timeout','$http'];
+AppBuilderController.$inject = ['toaster','$scope', '$rootScope', '$q', APP.MESSAGES, 'utils','$timeout'];
 
-function AppBuilderController($scope,$rootScope, $q, APP_MESSAGES, utils, $timeout, $http) {
+function AppBuilderController(toaster, $scope, $rootScope, $q, APP_MESSAGES, utils, $timeout) {
 
 	$scope.appInfo = {};
 
@@ -322,13 +322,14 @@ function AppBuilderController($scope,$rootScope, $q, APP_MESSAGES, utils, $timeo
 		}
 
 		modules = $scope.modules;
-				
+		toaster.pop('success', "Feature added");	
 	};
 
 	$scope.removeFeatureFromSideMenu = function(featureKey){
 		var featureModule = $scope.featureModules; 
 		var featureObject = featureModule[featureKey];
-		$scope.modules.pop(featureObject);				
+		$scope.modules.pop(featureObject);	
+		toaster.pop('success', "Feature removed");
 	};
 
 	$scope.toggleButton = function(id){

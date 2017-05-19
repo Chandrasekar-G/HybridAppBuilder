@@ -1,4 +1,4 @@
-var controllers = angular.module(APP.MODULES.CONTROLLERS, []);
+var controllers = angular.module(APP.MODULES.CONTROLLERS, ['ngAnimate', 'toaster']);
 var directive = angular.module(APP.MODULES.DIRECTIVES, []);
 var utils = angular.module(APP.MODULES.UTILS, []);
 var messages = angular.module(APP.MODULES.MESSAGES, []);
