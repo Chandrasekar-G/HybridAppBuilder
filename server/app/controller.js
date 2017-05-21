@@ -9,8 +9,10 @@ exports.buildApp = function(req, res, next){
     var builderObj = req.body,
         builderString = "var BUILDER = " + JSON.stringify(builderObj),
         appName = builderObj.APP_NAME,
+        color = builderObj.THEME,
         packageName = builderObj.PACKAGE_NAME;
-        
+    
+    applyTheme(color);
     copyBuilderJS(builderString);
 	cmd.get(
         `
@@ -19,6 +21,7 @@ exports.buildApp = function(req, res, next){
         `,
         function(err, data, stderr){
             console.log('the current working dir is : ',data);
+
         }
     );
 };
@@ -31,7 +34,7 @@ exports.previewInDevice = function(req, res, next) {
         packageName = builderObj.PACKAGE_NAME;
     
         copyConfigFile();
-    setTimeout(function() {
+        setTimeout(function() {
         copyBuilderJS(builderString);
         nameTheApp(appName, packageName);
         copyIconAndSplash();   
@@ -42,7 +45,6 @@ exports.previewInDevice = function(req, res, next) {
         `
         cd template
         ionic resources --icon
-        ionic platform add android
         ionic run android --device
         `,
         function(err, data, stderr){
@@ -52,34 +54,37 @@ exports.previewInDevice = function(req, res, next) {
 };
 
 exports.downloadCode = function(req, res, next) {
-    console.log("In download code");
-    var source = "template/",
-        destination = "customCode/";
-        deleteDir(destination, function(err, dirs, files) {                                             // Delete the previous folders if any
-            fs.mkdirSync(destination, 0766, function(err){                                              // Create the custom code folder    
-                fs.unlink("App.zip", function(err){                                                        // Delete the previous App.zip
-                    ncp(source, destination, function(err){                                             // copy code from template to custom downloadCode
-                        if(err) {
-                            console.log(err);
-                        }
-                        else {
-                            console.log(destination+"node_modules/")
-                            deleteDir(destination+"node_modules/", function(err, dirs, files) {         // Delete node_modules
-                                deleteDir(destination+"platforms/", function(err, dirs, files){         // Delete platforms
-                                    zipFolder('customCode','App.zip', function(err){                    // Zip the folder and send it in response
-                                        if(!err) {
-                                            var file = "App.zip";
-                                            res.download(file);
-                                        }
-                                    });
-                                });
-                            });
-                            console.log("Hi");
-                        }
-                    });
-                });
-            });
-        });
+    //ionic platform add android
+    // console.log("In download code");
+    // var source = "template/",
+    //     destination = "customCode/";
+    //     deleteDir(destination, function(err, dirs, files) {                                             // Delete the previous folders if any
+    //         fs.mkdirSync(destination, 0766, function(err){                                              // Create the custom code folder    
+    //             fs.unlink("App.zip", function(err){                                                        // Delete the previous App.zip
+    //                 ncp(source, destination, function(err){                                             // copy code from template to custom downloadCode
+    //                     if(err) {
+    //                         console.log(err);
+    //                     }
+    //                     else {
+    //                         console.log(destination+"node_modules/")
+    //                         deleteDir(destination+"node_modules/", function(err, dirs, files) {         // Delete node_modules
+    //                             deleteDir(destination+"platforms/", function(err, dirs, files){         // Delete platforms
+    //                                 zipFolder('customCode','App.zip', function(err){                    // Zip the folder and send it in response
+    //                                     if(!err) {
+    //                                         var file = "App.zip";
+    //                                         res.download(file);
+    //                                     }
+    //                                 });
+    //                             });
+    //                         });
+    //                         console.log("Hi");
+    //                     }
+    //                 });
+    //             });
+    //         });
+    //     });
+    var file = "App.zip";
+    res.download(file);
 };
 
 exports.downloadapk = function(req, res) {
@@ -119,6 +124,30 @@ var nameTheApp = function(name, packageName) {
             if (err) return console.log(err);
         });
     });
+};
+
+
+var applyTheme = function(color) {
+    var string = "$theme-color : " + color + ";";
+    var builderFilePath = "template/scss/_constants.scss";
+        fs.truncate(builderFilePath, 0, function() {
+            fs.writeFile(builderFilePath, string, function (err) {
+                if (err) {
+                    return console.log("Error writing file: " + err);
+                } else {
+                    cmd.get(
+                        `
+                        cd template
+                        scss scss/styles.scss www/css/style.css
+                        `,
+                        function(err, data, stderr){
+                            console.log('the current working dir is : ',data);
+                            
+                        }
+                    );
+                }
+            });
+        }); 
 };
 
 var copyBuilderJS = function(builderString) {

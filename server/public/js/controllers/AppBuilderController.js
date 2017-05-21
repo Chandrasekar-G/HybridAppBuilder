@@ -1,8 +1,8 @@
 controllers.controller(APP.CONTROLLERS.AppBuilderController, AppBuilderController);
 
-AppBuilderController.$inject = ['toaster','$scope', '$q', APP.MESSAGES, 'utils','$timeout'];
+AppBuilderController.$inject = ['toaster','$scope', '$q', APP.MESSAGES, 'utils','$timeout', '$http'];
 
-function AppBuilderController(toaster, $scope, $q, APP_MESSAGES, utils, $timeout) {
+function AppBuilderController(toaster, $scope, $q, APP_MESSAGES, utils, $timeout, $http) {
 
 	$scope.appInfo = {};
 
@@ -13,12 +13,12 @@ function AppBuilderController(toaster, $scope, $q, APP_MESSAGES, utils, $timeout
 	};
 
 	$scope.uploadData = "";
-	
+	$scope.color = "#439FD8";
 	$scope.fetchData = fetchData;
 
 	$scope.colorPalette = [ {BG:"#439FD8",COLOR:"#d7dde0"},{BG:"#1377B3",COLOR:"#d7dde0"},{BG:"#E63462",COLOR:"#d7dde0"},
 	{BG:"#E06962",COLOR:"#d7dde0"},{BG:"#A25C92",COLOR:"#d7dde0"},{BG:"#C16CAE",COLOR:"#d7dde0"},{BG:"#379474",COLOR:"#d7dde0"},
-	{BG:"#50B391",COLOR:"#d7dde0"},{BG:"#B3B7B2",COLOR:"#d7dde0"},{BG:"#777971",COLOR:"#d7dde0"},{BG:"#18154A",COLOR:"#4990E2"}
+	{BG:"#50B391",COLOR:"#d7dde0"},{BG:"#B3B7B2",COLOR:"#d7dde0"},{BG:"#777971",COLOR:"#d7dde0"}
 	];
 	
 	$scope.modules = [
@@ -315,6 +315,7 @@ function AppBuilderController(toaster, $scope, $q, APP_MESSAGES, utils, $timeout
 		var sideMenuElements = angular.element( document.getElementsByClassName( 'side-menu-items' ) );
 		sideMenuElements.css("background",colorCode);
 		sideMenuElements.css("color",textColor);
+		$scope.color = colorCode;
 	};
 
 	$scope.addFeatureToSideMenu = function(featureKey){
@@ -513,6 +514,7 @@ function AppBuilderController(toaster, $scope, $q, APP_MESSAGES, utils, $timeout
 			.then((response) => {
 				deferredUpload.resolve(response);
 				console.log(response);
+				toaster.pop('success', "File Uploaded");	
 			}, (error) => {
 				var message = utils.handleError(error);
 				deferredUpload.reject(message);
@@ -534,6 +536,7 @@ function AppBuilderController(toaster, $scope, $q, APP_MESSAGES, utils, $timeout
 			utils.callBackend(APP.DB.RequestType.POST, APP.DB.MethodName.Create, uploadData, true)
 			.then((response) => {
 				deferredInsert.resolve(response);
+				toaster.pop('success', "File Uploaded");	
 				console.log(response);
 			}, (error) => {
 				var message = utils.handleError(error);
@@ -559,7 +562,7 @@ function AppBuilderController(toaster, $scope, $q, APP_MESSAGES, utils, $timeout
 		builderObject["PACKAGE_NAME"] = $scope.appInfo.packageName;
 		builderObject["LOCATION"] =$scope.appInfo.location;
 		builderObject["COMPONENTS"] =$scope.featureModules;
-		
+		builderObject["THEME"] = $scope.color;
 		console.log(builderObject);
 
 		$http.post('http://localhost:8080/previewInDevice', builderObject)
@@ -569,6 +572,9 @@ function AppBuilderController(toaster, $scope, $q, APP_MESSAGES, utils, $timeout
             console.log(error);
         });
 		//utils.hideSpinner();
+		setTimeout(function(){
+			utils.hideSpinner();
+		},30000)
 		
 	};
 
@@ -589,7 +595,8 @@ function AppBuilderController(toaster, $scope, $q, APP_MESSAGES, utils, $timeout
 		builderObject["PACKAGE_NAME"] = $scope.appInfo.packageName;
 		builderObject["LOCATION"] =$scope.appInfo.location;
 		builderObject["COMPONENTS"] =$scope.featureModules;
-		
+		builderObject["THEME"] = $scope.color;
+
 		console.log(builderObject);
 
 		$http.post('http://localhost:8080/buildApp', builderObject)
